@@ -2,33 +2,39 @@
 import React, { useState } from 'react';
 import Icon from '@/components/Icon';
 import { Baby } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const [bool, setbool] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleOnEnter = () => {
-    console.log('Enter');
-    setbool(true);
+    setIsHovered(true);
   };
-  const handleOnMouseLeave = () => {
-    console.log('Leave');
-    setbool(false);
+
+  const handleOnLeave = () => {
+    setIsHovered(false);
   };
+
   return (
     <div className='border-b border-b-gray-100'>
       <div
-        className='p-4'
+        className='p-4 flex items-center'
         onMouseEnter={handleOnEnter}
-        onMouseLeave={handleOnMouseLeave}
+        onMouseLeave={handleOnLeave}
       >
         <Icon name={'AArrowDown'} />
-
         <Baby />
       </div>
       <div className=''>asdasd</div>
 
-      {bool && <div className='bg-red-400 w-full p-4'></div>}
+      <motion.div
+        onMouseEnter={handleOnEnter}
+        className='bg-red-400 w-full'
+        animate={{ height: isHovered ? 80 : 0 }}
+        transition={{ duration: 0.3 }}
+      ></motion.div>
     </div>
   );
 };
