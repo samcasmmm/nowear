@@ -27,12 +27,8 @@ const BrandLogo = () => (
   </Link>
 );
 
-
-type NavLinksProps = { href: string; label: string }
-const NavLinks: React.FC<NavLinksProps> = ({
-  href,
-  label,
-}) => (
+type NavLinksProps = { href: string; label: string };
+const NavLinks: React.FC<NavLinksProps> = ({ href, label }) => (
   <Link
     href={href}
     className='hover:opacity-100 opacity-60 transition-opacity duration-300'
@@ -51,7 +47,7 @@ const SearchBar: React.FC = () => (
 const Navbar = (props: Props) => {
   return (
     <div className='border-b border-b-gray-100 flex items-center justify-center'>
-      <div className='fluid flex items-center justify-between py-4'>
+      <div className='fluid flex items-center justify-between py-5'>
         <div className='flex items-center justify-start p-2 gap-10 font-bold'>
           <BrandLogo />
           {navLinks.map((link, index) => (

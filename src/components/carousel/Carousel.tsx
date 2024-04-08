@@ -7,8 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-import SliderButtons from './SliderButtons';
 import Image from 'next/image';
 
 interface Slide {
@@ -35,7 +33,17 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
   return (
     <Swiper
       navigation={true}
-      modules={[Navigation, Pagination]}
+      loop={true}
+      pagination={{
+        clickable: true,
+        dynamicBullets: true,
+      }}
+      autoplay={
+        {
+          // delay: 1500,
+        }
+      }
+      modules={[Navigation, Pagination, Autoplay]}
       className='w-full h-full'
     >
       {data.map((item, index) => (
