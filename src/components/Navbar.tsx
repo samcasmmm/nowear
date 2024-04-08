@@ -27,7 +27,9 @@ const BrandLogo = () => (
   </Link>
 );
 
-const NavLinks: React.FC<{ href: string; label: string }> = ({
+
+type NavLinksProps = { href: string; label: string }
+const NavLinks: React.FC<NavLinksProps> = ({
   href,
   label,
 }) => (
