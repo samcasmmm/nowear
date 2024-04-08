@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import useDeviceSize from '@/hooks/useDeviceSize';
 
 interface Slide {
   // id: number;
@@ -30,6 +31,7 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ data }) => {
+  const [width, height] = useDeviceSize();
   return (
     <Swiper
       navigation={true}
@@ -51,8 +53,8 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
           <Image
             src={item.image}
             alt={item.alt}
-            width={window.screen.width}
-            height={window.screen.height}
+            width={width}
+            height={height}
           />
         </SwiperSlide>
       ))}
