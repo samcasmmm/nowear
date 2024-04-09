@@ -34,18 +34,15 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
   const [width, height] = useDeviceSize();
   return (
     <Swiper
-      navigation={true}
       loop={true}
       pagination={{
         clickable: true,
         dynamicBullets: true,
       }}
-      autoplay={
-        {
-          // delay: 1500,
-        }
-      }
-      modules={[Navigation, Pagination, Autoplay]}
+      autoplay={{
+        delay: 3000,
+      }}
+      modules={[Pagination, Autoplay]}
       className='w-full h-full'
     >
       {data.map((item, index) => (
