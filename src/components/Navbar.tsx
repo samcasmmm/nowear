@@ -36,32 +36,18 @@ const BrandLogo = () => (
   </Link>
 );
 
-type NavLinksProps = { href: string; label: string };
-const NavLinks: React.FC<NavLinksProps> = ({ href, label }) => (
+type NavLinksProps = { href: string; label: string; className?: string };
+const NavLinks: React.FC<NavLinksProps> = ({ href, label, className }) => (
   <Link
     href={href}
-    className='hover:opacity-100 opacity-60 transition-opacity duration-300'
+    className={cn(
+      'hover:opacity-100 opacity-60 transition-opacity duration-300',
+      className
+    )}
   >
     {label}
   </Link>
 );
-
-const LeftPane = () => {
-  return (
-    <Sheet>
-      <SheetTrigger>Open</SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Are you absolutely sure?</SheetTitle>
-          <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </SheetDescription>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
-  );
-};
 
 const SearchBar: React.FC<{ className?: string }> = ({ className }) => (
   <div
@@ -81,13 +67,10 @@ const Navbar = (props: Props) => {
       <div className='border-b border-b-gray-100 flex items-center justify-center px-3'>
         <div className='fluid flex items-center justify-between py-5'>
           <div className='flex items-center justify-between md:justify-start p-2 gap-10 font-bold w-4/6'>
-            <SheetTrigger className='inline-block sm:hidden'>Open</SheetTrigger>
+            <SheetTrigger className='inline-block sm:hidden'>
+              <Icon name='Menu' />
+            </SheetTrigger>
             <BrandLogo />
-            <div className='hidden sm:flex items-center justify-center space-x-4'>
-              {navLinks.map((link, index) => (
-                <NavLinks href={link.href} label={link.label} key={index} />
-              ))}
-            </div>
           </div>
           <div className='flex items-center justify-center gap-4 flex-row'>
             <SearchBar className='hidden md:flex' />
@@ -104,10 +87,41 @@ const Navbar = (props: Props) => {
       </div>
       <SheetContent side={'left'}>
         <SheetHeader>
-          <SheetTitle>Are you absolutely sure?</SheetTitle>
-          <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+          <SheetTitle className='flex items-center justify-center'>
+            <BrandLogo />
+          </SheetTitle>
+          <SheetDescription className=''>
+            <div className='flex sm:hidden items-start justify-center space-y-6 flex-col font-bold mt-4'>
+              {navLinks.map((link, index) => (
+                <NavLinks
+                  href={link.href}
+                  label={link.label}
+                  key={index}
+                  className='border-b border-black/25 w-full text-left text-AstronautBlue-500 hover:text-AstronautBlue-600'
+                />
+              ))}
+              <div className='flex items-start justify-center w-full space-x-6'>
+                <div className='flex items-start justify-between flex-col text-left w-full space-y-4'>
+                  <p className='text-left cursor-pointer font-normal'>
+                    Track Order
+                  </p>
+                  <p className='text-left cursor-pointer font-normal'>
+                    Reviewa
+                  </p>
+                </div>
+                <div className='flex items-start justify-between flex-col w-full space-y-4'>
+                  <p className='text-left cursor-pointer font-normal'>
+                    Support
+                  </p>
+                  <p className='text-left cursor-pointer font-normal'>
+                    Return & Exchange
+                  </p>
+                  <p className='text-left cursor-pointer font-normal'>
+                    Contact Us
+                  </p>
+                </div>
+              </div>
+            </div>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
