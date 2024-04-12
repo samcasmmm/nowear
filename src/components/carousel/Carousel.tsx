@@ -46,7 +46,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
       className='w-full h-full'
     >
       {data.map((item, index) => (
-        <SwiperSlide className='bg-red-400 h-full w-full' key={index}>
+        <SwiperSlide className='h-full w-full' key={index}>
           <Image
             src={item.image}
             alt={item.alt}

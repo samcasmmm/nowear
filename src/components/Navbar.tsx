@@ -14,6 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import NavigationLinks from '@/components/navbar/Navigation';
 
 type Props = {};
 
@@ -64,13 +65,14 @@ const SearchBar: React.FC<{ className?: string }> = ({ className }) => (
 const Navbar = (props: Props) => {
   return (
     <Sheet>
-      <div className='border-b border-b-gray-100 flex items-center justify-center px-3'>
+      <div className='border-b border-b-gray-100 flex items-center justify-center px-3 relative'>
         <div className='fluid flex items-center justify-between py-5'>
           <div className='flex items-center justify-between md:justify-start p-2 gap-10 font-bold w-4/6'>
             <SheetTrigger className='inline-block sm:hidden'>
               <Icon name='Menu' />
             </SheetTrigger>
             <BrandLogo />
+            <NavigationLinks />
           </div>
           <div className='flex items-center justify-center gap-4 flex-row'>
             <SearchBar className='hidden md:flex' />
