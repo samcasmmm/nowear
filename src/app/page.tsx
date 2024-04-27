@@ -1,9 +1,12 @@
-'use client';
-
 import Image from 'next/image';
 import useDeviceSize from '@/hooks/useDeviceSize';
+import { Header, Navbar } from '@/components';
 
 export default function Home() {
-  const [width, height] = useDeviceSize();
-  return <main></main>;
+  return (
+    <main>
+      <Header />
+      <Navbar />
+    </main>
+  );
 }
