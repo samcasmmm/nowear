@@ -25,6 +25,7 @@ const config = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+
         AstronautBlue: {
           100: '#666d94',
           200: '#505985',
