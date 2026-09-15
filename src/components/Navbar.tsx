@@ -28,11 +28,11 @@ const navLinks = [
 const BrandLogo = () => (
   <Link href={"/"}>
     <Image
-      src={"/images/logo_light.png"}
-      alt="Logo"
+      src={"/images/logo_dark.png"}
+      alt="NoWear Logo"
       width={120}
-      height={100}
-      className="cursor-pointer"
+      height={36}
+      className="cursor-pointer object-contain"
     />
   </Link>
 );
@@ -53,40 +53,49 @@ const NavLinks: React.FC<NavLinksProps> = ({ href, label, className }) => (
 const SearchBar: React.FC<{ className?: string }> = ({ className }) => (
   <div
     className={cn(
-      "border flex items-center justify-center flex-row p-2 rounded-sm",
+      "border border-neutral-200 bg-neutral-50/80 hover:bg-white hover:border-neutral-400 focus-within:bg-white focus-within:border-neutral-900 flex items-center justify-center flex-row px-3 py-1.5 rounded-full transition-all duration-200 w-48 lg:w-64",
       className,
     )}
   >
-    <Icon name="Search" />
-    <input type="text" className=" outline-none pl-2 w-full h-full" />
+    <Search className="w-4 h-4 text-neutral-400" />
+    <input
+      type="text"
+      placeholder="Search essentials..."
+      className="outline-none pl-2 w-full text-xs text-neutral-900 bg-transparent placeholder-neutral-400"
+    />
   </div>
 );
 
 const Navbar = (props: Props) => {
   return (
     <Sheet>
-      <div className="border-b border-b-gray-100 flex items-center justify-center px-3 relative">
-        <div className="fluid flex items-center justify-around py-5">
-          <div className="flex items-center justify-between md:justify-start p-2 gap-10 font-bold w-4/6">
-            <SheetTrigger className="inline-block sm:hidden">
+      <header className="border-b border-neutral-200/80 bg-white/95 backdrop-blur-md sticky top-0 z-40">
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between py-3.5 px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between md:justify-start gap-6 lg:gap-8 font-bold">
+            <SheetTrigger className="inline-block sm:hidden cursor-pointer text-neutral-800 hover:text-black">
               <Icon name="Menu" />
             </SheetTrigger>
             <BrandLogo />
             <NavigationLinks />
           </div>
-          <div className="flex items-center justify-center gap-4 flex-row">
+          <div className="flex items-center justify-center gap-3.5 flex-row">
             <SearchBar className="hidden md:flex" />
-            <Icon
-              name="User"
-              className="hover:opacity-100 opacity-60 transition-opacity duration-300"
-            />
-            <Icon
-              name="ShoppingBag"
-              className="hover:opacity-100 opacity-60 transition-opacity duration-300"
-            />
+            <button
+              aria-label="User profile"
+              className="p-2 rounded-full hover:bg-neutral-100 text-neutral-700 hover:text-neutral-950 transition-colors cursor-pointer"
+            >
+              <Icon name="User" />
+            </button>
+            <button
+              aria-label="Shopping bag"
+              className="p-2 rounded-full hover:bg-neutral-100 text-neutral-700 hover:text-neutral-950 transition-colors cursor-pointer relative"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-neutral-900 rounded-full" />
+            </button>
           </div>
         </div>
-      </div>
+      </header>
       <SheetContent side={"left"}>
         <SheetHeader>
           <SheetTitle className="flex items-center justify-center">
@@ -99,28 +108,28 @@ const Navbar = (props: Props) => {
                   href={link.href}
                   label={link.label}
                   key={index}
-                  className="border-b border-black/25 w-full text-left text-AstronautBlue-500 hover:text-AstronautBlue-600"
+                  className="border-b border-neutral-200 w-full text-left text-neutral-800 hover:text-neutral-950 py-2.5"
                 />
               ))}
-              <div className="flex items-start justify-center w-full space-x-6">
-                <div className="flex items-start justify-between flex-col text-left w-full space-y-4">
-                  <p className="text-left cursor-pointer font-normal">
+              <div className="flex items-start justify-between w-full pt-4 border-t border-neutral-200 text-xs text-neutral-600">
+                <div className="flex flex-col space-y-3">
+                  <Link href="/track-order" className="hover:text-neutral-950">
                     Track Order
-                  </p>
-                  <p className="text-left cursor-pointer font-normal">
-                    Reviewa
-                  </p>
+                  </Link>
+                  <Link href="/reviews" className="hover:text-neutral-950">
+                    Customer Reviews
+                  </Link>
                 </div>
-                <div className="flex items-start justify-between flex-col w-full space-y-4">
-                  <p className="text-left cursor-pointer font-normal">
-                    Support
-                  </p>
-                  <p className="text-left cursor-pointer font-normal">
+                <div className="flex flex-col space-y-3">
+                  <Link href="/support" className="hover:text-neutral-950">
+                    Help & Support
+                  </Link>
+                  <Link href="/returns" className="hover:text-neutral-950">
                     Return & Exchange
-                  </p>
-                  <p className="text-left cursor-pointer font-normal">
+                  </Link>
+                  <Link href="/contact" className="hover:text-neutral-950">
                     Contact Us
-                  </p>
+                  </Link>
                 </div>
               </div>
             </div>
