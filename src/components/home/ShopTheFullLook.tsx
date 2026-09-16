@@ -13,6 +13,11 @@ import {
   Flame,
   Shirt,
   Scissors,
+  Eye,
+  X,
+  ShieldCheck,
+  Tag,
+  CheckCircle2,
 } from 'lucide-react';
 import { fullLooks, FullLook } from '@/data/storeData';
 
@@ -68,6 +73,7 @@ export const ShopTheFullLook: React.FC = () => {
   const [selectedSizes, setSelectedSizes] = useState<Record<string, string>>({});
   const [claimedLooks, setClaimedLooks] = useState<Record<string, boolean>>({});
   const [activePin, setActivePin] = useState<{ lookId: string; pinIdx: number } | null>(null);
+  const [quickViewLook, setQuickViewLook] = useState<FullLook | null>(null);
 
   const handleSelectSize = (lookId: string, size: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -83,6 +89,12 @@ export const ShopTheFullLook: React.FC = () => {
     setTimeout(() => {
       setClaimedLooks((prev) => ({ ...prev, [look.id]: false }));
     }, 2500);
+  };
+
+  const handleOpenQuickView = (look: FullLook, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setQuickViewLook(look);
   };
 
   return (
@@ -131,7 +143,7 @@ export const ShopTheFullLook: React.FC = () => {
                 key={look.id}
                 className="group relative flex flex-col rounded-2xl overflow-hidden bg-white border-2 border-black shadow-sm hover:shadow-2xl transition-all duration-300"
               >
-                {/* Visual Image with Interactive Hotspots */}
+                {/* Visual Image with Interactive Hotspots & Quick View Eye Button */}
                 <div className="relative aspect-3/4 w-full overflow-hidden bg-neutral-100">
                   <Image
                     src={look.image}
@@ -149,9 +161,27 @@ export const ShopTheFullLook: React.FC = () => {
                     <span className="text-[9px] font-mono font-black uppercase tracking-wider text-black bg-[#f6b800] px-2.5 py-1 rounded shadow-xs">
                       LOOK 0{index + 1}
                     </span>
-                    <span className="text-[9px] font-mono font-bold uppercase text-white bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded border border-white/20">
-                      2-PIECE SET
-                    </span>
+                    
+                    {/* Top Right: Quick View Eye Icon Button */}
+                    <button
+                      onClick={(e) => handleOpenQuickView(look, e)}
+                      title="Quick Inspect Outfit"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/85 hover:bg-black text-white text-[10px] font-mono font-bold uppercase tracking-wider border border-white/30 backdrop-blur-xs transition-all duration-200 hover:scale-105 active:scale-95 shadow-md cursor-pointer group/eye"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-[#f6b800] group-hover/eye:scale-110 transition-transform" />
+                      <span>QUICK VIEW</span>
+                    </button>
+                  </div>
+
+                  {/* Center Hover Eye Button Pill */}
+                  <div className="absolute inset-0 flex items-center justify-center z-15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <button
+                      onClick={(e) => handleOpenQuickView(look, e)}
+                      className="pointer-events-auto px-4 py-2 rounded-xl bg-white text-black font-mono text-xs font-black uppercase tracking-wider flex items-center gap-2 shadow-2xl border-2 border-black hover:bg-[#f6b800] hover:text-black transition-all transform -translate-y-2 group-hover:translate-y-0 duration-300 cursor-pointer"
+                    >
+                      <Eye className="w-4 h-4 text-[#e84125]" />
+                      <span>INSPECT OUTFIT</span>
+                    </button>
                   </div>
 
                   {/* Interactive Hotspot Pins */}
@@ -167,6 +197,7 @@ export const ShopTheFullLook: React.FC = () => {
                         onMouseLeave={() => setActivePin(null)}
                       >
                         <button
+                          onClick={(e) => handleOpenQuickView(look, e)}
                           aria-label={`View ${pin.label}`}
                           className="w-6 h-6 rounded-full bg-white text-black font-black text-xs flex items-center justify-center shadow-lg border-2 border-black hover:scale-125 transition-transform cursor-pointer"
                         >
@@ -202,10 +233,19 @@ export const ShopTheFullLook: React.FC = () => {
                 {/* Card Content & Included Pieces */}
                 <div className="p-4 sm:p-5 flex flex-col justify-between grow space-y-4 bg-white">
                   <div>
-                    {/* Title */}
-                    <h3 className="text-base font-black text-neutral-950 uppercase tracking-tight line-clamp-1">
-                      {look.title}
-                    </h3>
+                    {/* Title with Eye link */}
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-base font-black text-neutral-950 uppercase tracking-tight line-clamp-1 flex-1">
+                        {look.title}
+                      </h3>
+                      <button
+                        onClick={(e) => handleOpenQuickView(look, e)}
+                        title="View look details"
+                        className="p-1 rounded-md text-neutral-400 hover:text-black hover:bg-neutral-100 transition-colors"
+                      >
+                        <Eye className="w-4 h-4" />
+                      </button>
+                    </div>
 
                     {/* Pricing */}
                     <div className="mt-1.5 flex items-baseline gap-2 flex-wrap">
@@ -286,6 +326,135 @@ export const ShopTheFullLook: React.FC = () => {
             );
           })}
         </div>
+
+        {/* ========================================================= */}
+        {/* QUICK VIEW OUTFIT MODAL */}
+        {/* ========================================================= */}
+        {quickViewLook && (
+          <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6 animate-in fade-in">
+            <div className="bg-white rounded-3xl max-w-3xl w-full border-2 border-black shadow-2xl overflow-hidden relative flex flex-col md:flex-row">
+              
+              {/* Modal Close Button */}
+              <button
+                onClick={() => setQuickViewLook(null)}
+                className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center transition-transform hover:scale-110"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              {/* Left Column: Big Look Image with Hotspots (5 cols) */}
+              <div className="relative aspect-3/4 md:aspect-auto md:w-1/2 bg-neutral-100">
+                <Image
+                  src={quickViewLook.image}
+                  alt={quickViewLook.title}
+                  fill
+                  sizes="500px"
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="text-[10px] font-mono font-black uppercase tracking-wider text-[#f6b800] bg-black/80 px-2.5 py-1 rounded inline-block mb-1">
+                    COMPLETE STREETWEAR COORDINATE
+                  </span>
+                  <h4 className="text-lg font-black uppercase leading-tight">
+                    {quickViewLook.title}
+                  </h4>
+                </div>
+              </div>
+
+              {/* Right Column: Outfit Breakdown & Fast Add (5 cols) */}
+              <div className="p-6 md:p-8 md:w-1/2 flex flex-col justify-between space-y-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-2 text-xs font-mono font-bold text-[#e84125]">
+                    <Eye className="w-4 h-4" />
+                    <span>OUTFIT ARCHIVE INSPECTOR</span>
+                  </div>
+
+                  <h3 className="text-xl font-black uppercase tracking-tight text-neutral-950">
+                    {quickViewLook.title}
+                  </h3>
+
+                  {/* Pricing */}
+                  <div className="mt-2 flex items-baseline gap-3">
+                    <span className="text-3xl font-black font-mono text-black">
+                      ₹{quickViewLook.price.toLocaleString('en-IN')}
+                    </span>
+                    <span className="text-sm font-mono text-neutral-400 line-through">
+                      ₹{quickViewLook.originalPrice.toLocaleString('en-IN')}
+                    </span>
+                    <span className="text-xs font-black font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      {quickViewLook.discount}% OFF
+                    </span>
+                  </div>
+
+                  {/* Items Included */}
+                  <div className="mt-4 p-3 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2">
+                    <span className="text-[10px] font-mono font-black uppercase text-neutral-400 block">
+                      INCLUDED IN THIS BUNDLE:
+                    </span>
+                    {(lookBreakdown[quickViewLook.id]?.pieces || ['Tee', 'Pants']).map((p, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs font-bold text-neutral-900">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#e84125] shrink-0" />
+                        <span>{p}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Size Selector in Modal */}
+                  <div className="mt-4 space-y-1.5">
+                    <span className="text-[10px] font-mono font-bold uppercase text-neutral-500 block">
+                      CHOOSE SIZE:
+                    </span>
+                    <div className="grid grid-cols-4 gap-2">
+                      {lookSizes.map((s) => {
+                        const currentS = selectedSizes[quickViewLook.id] || 'M (32)';
+                        return (
+                          <button
+                            key={s}
+                            onClick={(e) => handleSelectSize(quickViewLook.id, s, e)}
+                            className={`py-2 text-xs font-mono font-black uppercase rounded-xl border transition-all ${
+                              currentS === s
+                                ? 'bg-black text-[#f6b800] border-black shadow-sm'
+                                : 'bg-white text-neutral-800 border-neutral-300 hover:border-black'
+                            }`}
+                          >
+                            {s}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Modal CTA Buttons */}
+                <div className="space-y-2">
+                  <button
+                    onClick={(e) => {
+                      handleClaimLook(quickViewLook, e);
+                      setQuickViewLook(null);
+                    }}
+                    className="w-full py-3.5 rounded-2xl bg-[#f6b800] hover:bg-[#ffc21a] text-black font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 border-2 border-black shadow-lg active:scale-95 transition-all"
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                    <span>CLAIM FULL LOOK ({selectedSizes[quickViewLook.id] || 'M (32)'})</span>
+                  </button>
+
+                  <Link
+                    href={`/product/olive-coord`}
+                    onClick={() => setQuickViewLook(null)}
+                    className="w-full py-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                  >
+                    <span>View Product Details</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        )}
 
         {/* Bottom Editorial Lookbook Ribbon */}
         <div className="mt-14 p-6 sm:p-8 rounded-2xl border-2 border-black bg-neutral-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
