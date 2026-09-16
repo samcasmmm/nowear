@@ -21,7 +21,7 @@ export const ProductComparisonTable: React.FC<ProductComparisonTableProps> = ({
     { label: 'Seam Construction', value: '5-Thread Reinforced Overlock with Bar-Tack Joints' },
     { label: 'Care Instructions', value: 'Machine wash cold inside out, gentle tumble or hang dry' },
     { label: 'Country of Origin', value: 'Crafted in Mumbai, India' },
-    { label: 'Model / ASIN', value: 'NW-280-BOX-2026' },
+    { label: 'Model Code / SKU', value: 'NW-280-BOX-2026' },
   ];
 
   const comparisonRows = [
@@ -73,7 +73,7 @@ export const ProductComparisonTable: React.FC<ProductComparisonTableProps> = ({
   return (
     <div className="w-full my-12 space-y-12">
       
-      {/* 1. PRODUCT SPECIFICATIONS DETAILS (AMAZON SPEC SHEET) */}
+      {/* 1. PRODUCT SPECIFICATIONS DETAILS */}
       <div className="p-6 sm:p-8 rounded-3xl bg-white border-2 border-black shadow-lg">
         <div className="flex items-center gap-2 mb-2">
           <span className="w-2.5 h-2.5 bg-[#e84125] inline-block rotate-45" />
@@ -103,7 +103,7 @@ export const ProductComparisonTable: React.FC<ProductComparisonTableProps> = ({
         </div>
       </div>
 
-      {/* 2. COMPARE WITH SIMILAR ITEMS (AMAZON COMPARISON MATRIX) */}
+      {/* 2. COMPARE WITH SIMILAR ITEMS */}
       <div className="p-6 sm:p-8 rounded-3xl bg-neutral-950 text-white border border-neutral-800 shadow-xl overflow-hidden">
         <div className="flex items-center gap-2 mb-2">
           <Sparkles className="w-4 h-4 text-[#f6b800]" />

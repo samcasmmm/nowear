@@ -152,7 +152,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
               }`}
             />
 
-            {/* Hover Magnifier Loupe Zoom (Amazon Style) */}
+            {/* Hover Magnifier Loupe Zoom */}
             <div
               className={`absolute inset-0 bg-no-repeat transition-opacity duration-150 pointer-events-none hidden lg:block ${
                 isZoomed ? 'opacity-100' : 'opacity-0'

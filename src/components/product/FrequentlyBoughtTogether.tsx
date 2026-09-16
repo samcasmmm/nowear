@@ -81,7 +81,7 @@ export const FrequentlyBoughtTogether: React.FC<FrequentlyBoughtTogetherProps> =
       <div className="flex items-center gap-2 mb-2">
         <span className="w-2.5 h-2.5 bg-[#e84125] inline-block rotate-45" />
         <span className="text-xs font-mono font-black uppercase tracking-widest text-[#e84125]">
-          // AMAZON STYLE BUNDLE BUILDER
+          // CURATED FIT COMBOS • BUNDLE ARCHIVE
         </span>
       </div>
       

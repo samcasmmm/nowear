@@ -107,7 +107,7 @@ export const ProductQA: React.FC = () => {
       <div className="flex items-center gap-2 mb-2">
         <span className="w-2.5 h-2.5 bg-[#e84125] inline-block rotate-45" />
         <span className="text-xs font-mono font-black uppercase tracking-widest text-[#e84125]">
-          // AMAZON STYLE COMMUNITY Q&amp;A
+          // COMMUNITY INQUIRIES • FIT &amp; FABRIC Q&amp;A
         </span>
       </div>
 

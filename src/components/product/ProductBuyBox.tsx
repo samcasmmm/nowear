@@ -121,7 +121,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
           <span className="text-emerald-700 font-bold">You save ₹{totalSavings.toLocaleString('en-IN')}</span>
         </div>
 
-        {/* Amazon-Style 1-Click Coupon Checkbox */}
+        {/* 1-Click Coupon Checkbox */}
         <div className="mt-4 p-3 rounded-2xl bg-amber-50 border border-amber-300 flex items-center justify-between">
           <label className="flex items-center gap-2.5 cursor-pointer select-none">
             <input
@@ -216,7 +216,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
         </div>
       </div>
 
-      {/* 4. PINCODE DELIVERY ESTIMATOR (AMAZON STYLE) */}
+      {/* 4. PINCODE DELIVERY ESTIMATOR */}
       <div className="py-4 border-b border-neutral-200">
         <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-neutral-900 mb-2">
           <MapPin className="w-4 h-4 text-[#e84125]" />
@@ -355,7 +355,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
         </div>
       </div>
 
-      {/* 8. AMAZON TRUST GUARANTEES & SELLER INFO */}
+      {/* 8. TRUST GUARANTEES & SELLER INFO */}
       <div className="mt-6 pt-5 border-t border-neutral-200 grid grid-cols-2 gap-3 text-[11px] text-neutral-600 font-mono">
         <div className="flex items-center gap-2">
           <RotateCcw className="w-4 h-4 text-neutral-800 shrink-0" />

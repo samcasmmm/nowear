@@ -46,7 +46,7 @@ export const ProductClientWrapper: React.FC<ProductClientWrapperProps> = ({ prod
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-6">
       
-      {/* 1. BREADCRUMBS & TOP AMAZON META */}
+      {/* 1. BREADCRUMBS & TOP PRODUCT METADATA */}
       <div className="flex flex-wrap items-center justify-between gap-2 pb-4 text-xs font-mono text-neutral-500 border-b border-neutral-200">
         <div className="flex items-center gap-1.5">
           <Link href="/" className="hover:text-black transition-colors">
@@ -67,7 +67,7 @@ export const ProductClientWrapper: React.FC<ProductClientWrapperProps> = ({ prod
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="text-[11px] font-mono text-neutral-400">ASIN: B0NW889XQ</span>
+          <span className="text-[11px] font-mono text-neutral-400">SKU: NW-280-BOX-2026</span>
           <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-950 text-[10px] font-bold">
             #1 IN MEN&apos;S STREETWEAR
           </span>
@@ -130,7 +130,7 @@ export const ProductClientWrapper: React.FC<ProductClientWrapperProps> = ({ prod
             </div>
           </div>
 
-          {/* Amazon Key Bullets */}
+          {/* Key Product Specification Bullets */}
           <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 text-xs space-y-2">
             <h4 className="font-mono font-black uppercase tracking-wider text-neutral-900 text-[11px]">
               About This Item:
@@ -155,7 +155,7 @@ export const ProductClientWrapper: React.FC<ProductClientWrapperProps> = ({ prod
             </ul>
           </div>
 
-          {/* Amazon Buy Box Component */}
+          {/* Sticky Buy Box Component */}
           <ProductBuyBox
             price={product.price}
             originalPrice={product.originalPrice}
@@ -172,7 +172,7 @@ export const ProductClientWrapper: React.FC<ProductClientWrapperProps> = ({ prod
       </div>
 
       {/* ========================================================= */}
-      {/* 3. FREQUENTLY BOUGHT TOGETHER (AMAZON BUNDLE) */}
+      {/* 3. FREQUENTLY BOUGHT TOGETHER (BUNDLE ARCHIVE) */}
       {/* ========================================================= */}
       <FrequentlyBoughtTogether
         currentProduct={{
