@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
-import local from 'next/font/local';
+import { Plus_Jakarta_Sans, Space_Mono } from 'next/font/google';
 import './globals.css';
 
-const inter = Montserrat({ weight: ['200'], subsets: ['latin'] });
+const sansFont = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-sans',
+  display: 'swap',
+});
 
-const deacon = local({
-  src: [
-    {
-      path: '../../public/fonts/Family.otf',
-      weight: '18',
-    },
-  ],
-  variable: '--font-deacon',
+const monoFont = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-mono',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -26,9 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <link rel='icon' href='/images/favicon.png' sizes='any' />
-      <body className={deacon.variable}>{children}</body>
+    <html lang="en" className={`${sansFont.variable} ${monoFont.variable}`}>
+      <head>
+        <link rel="icon" href="/images/favicon.png" sizes="any" />
+      </head>
+      <body className="font-sans antialiased bg-white text-neutral-900 selection:bg-neutral-900 selection:text-white min-h-screen">
+        {children}
+      </body>
     </html>
   );
 }
