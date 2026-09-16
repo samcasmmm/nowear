@@ -495,9 +495,8 @@ export const Footer: React.FC = () => {
 
         {/* 5. BESPOKE MASSIVE GRAPHIC TYPOGRAPHY */}
         <div className="mt-10 mb-2 select-none pointer-events-none w-full overflow-hidden border-t-2 border-black pt-4">
-          <div className="flex items-baseline justify-between font-black tracking-tighter uppercase leading-none text-[15vw] sm:text-[14vw] md:text-[13vw] whitespace-nowrap">
+          <div className="flex items-center justify-center font-black tracking-tighter uppercase leading-none text-[24vw] sm:text-[22vw] md:text-[20vw] whitespace-nowrap text-center">
             <span className="text-[#e84125]">NWEAR.</span>
-            <span className="text-black">STUDIO</span>
           </div>
         </div>
 
