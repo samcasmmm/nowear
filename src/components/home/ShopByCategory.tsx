@@ -69,8 +69,8 @@ export const ShopByCategory: React.FC = () => {
                 onClick={() => setActiveGroup(tab.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 shrink-0 cursor-pointer ${
                   activeGroup === tab.id
-                    ? 'bg-black text-[#f6b800] shadow-md border-2 border-black'
-                    : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border-2 border-transparent'
+                    ? 'bg-neutral-950 text-[#f6b800] shadow-md border border-neutral-900'
+                    : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-200/60'
                 }`}
               >
                 {tab.label}
@@ -88,7 +88,7 @@ export const ShopByCategory: React.FC = () => {
               <Link
                 key={category.id}
                 href={category.href}
-                className="group relative flex flex-col rounded-2xl overflow-hidden bg-neutral-50 border-2 border-transparent hover:border-black p-3 hover:bg-white hover:shadow-xl transition-all duration-300"
+                className="group relative flex flex-col rounded-2xl overflow-hidden bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-400 p-3 hover:bg-white hover:shadow-xl transition-all duration-300"
               >
                 {/* Visual Thumbnail Image Container */}
                 <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-neutral-200 mb-3">

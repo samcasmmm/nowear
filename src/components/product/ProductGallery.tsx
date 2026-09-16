@@ -68,10 +68,10 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
               setSelectedIndex(idx);
               setActiveMediaTab('photos');
             }}
-            className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl overflow-hidden shrink-0 border-2 transition-all duration-200 ${
+            className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl overflow-hidden shrink-0 border transition-all duration-200 cursor-pointer ${
               selectedIndex === idx && activeMediaTab === 'photos'
-                ? 'border-black shadow-md ring-2 ring-[#f6b800]'
-                : 'border-neutral-200 hover:border-neutral-400 opacity-80 hover:opacity-100'
+                ? 'border-neutral-900 shadow-md ring-2 ring-[#f6b800]'
+                : 'border-neutral-200/90 hover:border-neutral-400 opacity-80 hover:opacity-100'
             }`}
           >
             <Image
@@ -107,9 +107,9 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
         {/* Media Preview Tabs */}
         <button
           onClick={() => setActiveMediaTab('video')}
-          className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl shrink-0 border-2 flex flex-col items-center justify-center gap-1 transition-all ${
+          className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl shrink-0 border flex flex-col items-center justify-center gap-1 transition-all cursor-pointer ${
             activeMediaTab === 'video'
-              ? 'border-black bg-neutral-900 text-white shadow-md'
+              ? 'border-neutral-900 bg-neutral-950 text-white shadow-md'
               : 'border-neutral-200 bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
           }`}
         >
@@ -119,9 +119,9 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
 
         <button
           onClick={() => setActiveMediaTab('360')}
-          className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl shrink-0 border-2 flex flex-col items-center justify-center gap-1 transition-all ${
+          className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl shrink-0 border flex flex-col items-center justify-center gap-1 transition-all cursor-pointer ${
             activeMediaTab === '360'
-              ? 'border-black bg-neutral-900 text-white shadow-md'
+              ? 'border-neutral-900 bg-neutral-950 text-white shadow-md'
               : 'border-neutral-200 bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
           }`}
         >
@@ -131,7 +131,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
       </div>
 
       {/* 2. MAIN INTERACTIVE VIEWER CONTAINER */}
-      <div className="relative flex-1 rounded-3xl overflow-hidden border-2 border-neutral-200/80 bg-neutral-50 shadow-lg aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-[620px]">
+      <div className="relative flex-1 rounded-3xl overflow-hidden border border-neutral-200/90 bg-neutral-50 shadow-lg aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-[620px]">
         
         {activeMediaTab === 'photos' && (
           <div

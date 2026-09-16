@@ -135,7 +135,7 @@ const mockReviews: Review[] = [
     name: 'Arjun N.',
     avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=85',
     rating: 5,
-    title: 'The 280 GSM weight gives it that Balenciaga drape.',
+    title: 'The 280 GSM weight gives it that structured architectural drape.',
     reviewText:
       'I was looking for heavyweight boxy basics with proper sleeve length that terminates right above the elbow. NWear nailed the exact streetwear ratio.',
     verified: true,
@@ -158,10 +158,10 @@ const ratingBreakdown = [
 ];
 
 const featureRatings = [
-  { label: '280 GSM Density & Weight', score: 4.9, benchmark: '98% Positive' },
-  { label: 'Architectural Boxy Drape', score: 4.9, benchmark: '96% Positive' },
+  { label: '280 GSM Fabric Density', score: 4.9, benchmark: '98% Positive' },
+  { label: 'Boxy Drop Shoulder Drape', score: 4.9, benchmark: '96% Positive' },
   { label: 'Anti-Sag Ribbed Collar', score: 4.8, benchmark: '95% Positive' },
-  { label: 'Fabric Longevity & Value', score: 4.9, benchmark: '99% Positive' },
+  { label: 'Colorfastness & Value', score: 4.9, benchmark: '99% Positive' },
 ];
 
 export const ProductReviewsBreakdown: React.FC = () => {
@@ -257,7 +257,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
   };
 
   return (
-    <section className="w-full my-12 p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border-2 border-black shadow-xl selection:bg-[#f6b800] selection:text-black font-sans relative">
+    <section className="w-full my-12 p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-neutral-200/90 shadow-xl selection:bg-[#f6b800] selection:text-black font-sans relative">
       
       {/* 1. SECTION HEADER */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-8 border-b border-neutral-200 gap-4">
@@ -279,7 +279,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setShowWriteModal(true)}
-            className="px-5 py-3 rounded-2xl bg-black hover:bg-neutral-800 text-[#f6b800] font-mono text-xs font-black uppercase tracking-wider flex items-center gap-2 border-2 border-black shadow-lg transition-all active:scale-95 cursor-pointer"
+            className="px-6 py-3 rounded-2xl bg-neutral-950 hover:bg-neutral-800 text-[#f6b800] font-mono text-xs font-black uppercase tracking-wider flex items-center gap-2 border border-neutral-900 shadow-lg transition-all active:scale-95 cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>WRITE A FIT CHECK</span>
@@ -287,126 +287,112 @@ export const ProductReviewsBreakdown: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. RATINGS SCOREBOARD & FIT METRICS */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 border-b border-neutral-200">
+      {/* 2. BALANCED 3-COLUMN FULL-WIDTH DASHBOARD (ZERO EMPTY SPACE) */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-b border-neutral-200">
         
-        {/* Left Column: Overall 4.9 Score & Star Distribution (5 cols) */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="p-6 rounded-2xl bg-neutral-950 text-white border border-neutral-800 flex items-center justify-between shadow-md">
-            <div>
-              <span className="text-5xl font-black font-mono text-white block leading-none">
-                4.9
-              </span>
-              <div className="flex items-center text-[#f6b800] mt-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-              <span className="text-[11px] font-mono text-neutral-400 block mt-1">
-                Based on 14,820 global buyer ratings
-              </span>
+        {/* COLUMN 1: OVERALL SCORE & STAR BARS (4 cols) */}
+        <div className="md:col-span-4 p-5 rounded-3xl bg-neutral-50/80 border border-neutral-200/90 flex flex-col justify-between space-y-4 shadow-xs">
+          <div>
+            <div className="flex items-center justify-between pb-3 border-b border-neutral-200">
+              <span className="text-xs font-mono font-black uppercase text-neutral-500">OVERALL SCORE</span>
+              <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">97% RECOMMEND</span>
             </div>
 
-            <div className="text-right border-l border-neutral-800 pl-6 space-y-1">
-              <span className="text-2xl font-mono font-black text-[#f6b800] block">
-                97.2%
-              </span>
-              <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider block">
-                RECOMMEND TO FRIEND
-              </span>
-            </div>
-          </div>
-
-          {/* Interactive Star Rating Breakdown Bars */}
-          <div className="space-y-2">
-            {ratingBreakdown.map((row) => (
-              <button
-                key={row.star}
-                onClick={() => setSelectedFilter(selectedFilter === `${row.star}-star` ? 'all' : `${row.star}-star`)}
-                className={`w-full flex items-center gap-2.5 text-xs font-mono group p-1 rounded-lg transition-all ${
-                  selectedFilter === `${row.star}-star` ? 'bg-amber-50 ring-1 ring-[#f6b800]' : 'hover:bg-neutral-50'
-                }`}
-              >
-                <span className="w-14 text-left text-neutral-700 font-bold flex items-center gap-1">
-                  <span>{row.star}</span>
-                  <Star className="w-3 h-3 fill-current text-neutral-400 group-hover:text-[#f6b800]" />
-                </span>
-                <div className="flex-1 h-3 rounded-full bg-neutral-100 overflow-hidden border border-neutral-200">
-                  <div
-                    className="h-full bg-[#f6b800] rounded-full transition-all duration-500 group-hover:bg-amber-500"
-                    style={{ width: `${row.pct}%` }}
-                  />
+            <div className="flex items-center gap-3 mt-3">
+              <span className="text-4xl font-black font-mono text-neutral-950">4.9</span>
+              <div>
+                <div className="flex items-center text-[#f6b800]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                  ))}
                 </div>
-                <span className="w-12 text-right text-neutral-500 font-bold">
-                  {row.pct}%
-                </span>
-              </button>
-            ))}
+                <span className="text-[10px] font-mono text-neutral-500 block mt-0.5">14,820 global ratings</span>
+              </div>
+            </div>
+
+            {/* Star Bars */}
+            <div className="space-y-1.5 mt-4">
+              {ratingBreakdown.map((row) => (
+                <button
+                  key={row.star}
+                  onClick={() => setSelectedFilter(selectedFilter === `${row.star}-star` ? 'all' : `${row.star}-star`)}
+                  className={`w-full flex items-center gap-2 text-xs font-mono group p-1 rounded-lg transition-all cursor-pointer ${
+                    selectedFilter === `${row.star}-star` ? 'bg-amber-100 ring-1 ring-[#f6b800]' : 'hover:bg-neutral-100'
+                  }`}
+                >
+                  <span className="w-12 text-left text-neutral-700 font-bold flex items-center gap-0.5 text-[11px]">
+                    <span>{row.star}</span>
+                    <Star className="w-2.5 h-2.5 fill-current text-neutral-400 group-hover:text-[#f6b800]" />
+                  </span>
+                  <div className="flex-1 h-2 rounded-full bg-neutral-200 overflow-hidden">
+                    <div className="h-full bg-[#f6b800] rounded-full" style={{ width: `${row.pct}%` }} />
+                  </div>
+                  <span className="w-9 text-right text-neutral-500 font-bold text-[10px]">{row.pct}%</span>
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Customer Fit Spectrum */}
-          <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2">
-            <div className="flex items-center justify-between text-xs font-mono font-bold">
-              <span className="text-neutral-900 uppercase">FIT FEEDBACK:</span>
-              <span className="text-[#e84125]">89% TRUE TO SIZE</span>
+          <button
+            onClick={() => setShowWriteModal(true)}
+            className="w-full py-2.5 rounded-xl border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-950 hover:text-white font-mono text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer"
+          >
+            Write a Verified Review
+          </button>
+        </div>
+
+        {/* COLUMN 2: FEATURE AUDIT & FIT SPECTRUM (4 cols) */}
+        <div className="md:col-span-4 p-5 rounded-3xl bg-neutral-50/80 border border-neutral-200/90 flex flex-col justify-between space-y-4 shadow-xs">
+          <div>
+            <div className="flex items-center justify-between pb-3 border-b border-neutral-200">
+              <span className="text-xs font-mono font-black uppercase text-neutral-500">FEATURE RATINGS</span>
+              <span className="text-[10px] font-mono font-bold text-[#e84125]">LAB TESTED</span>
             </div>
-            <div className="w-full h-2.5 rounded-full bg-neutral-200 overflow-hidden flex">
-              <div className="bg-neutral-400 h-full" style={{ width: '2%' }} title="Runs Small: 2%" />
-              <div className="bg-[#f6b800] h-full" style={{ width: '89%' }} title="True to Size: 89%" />
-              <div className="bg-neutral-500 h-full" style={{ width: '9%' }} title="Runs Large: 9%" />
+
+            <div className="space-y-2.5 mt-3">
+              {featureRatings.map((feat, idx) => (
+                <div key={idx} className="flex items-center justify-between text-xs font-mono py-1 border-b border-neutral-100 last:border-none">
+                  <span className="text-neutral-700 font-medium truncate pr-2">{feat.label}</span>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <Star className="w-3 h-3 fill-[#f6b800] text-[#f6b800]" />
+                    <span className="font-black text-black">{feat.score}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="flex justify-between text-[10px] font-mono text-neutral-500">
-              <span>Runs Small (2%)</span>
-              <strong className="text-black font-bold">True to Boxy Fit (89%)</strong>
-              <span>Runs Large (9%)</span>
+          </div>
+
+          {/* Fit Spectrum Gauge */}
+          <div className="p-3 rounded-2xl bg-white border border-neutral-200 space-y-1.5">
+            <div className="flex items-center justify-between text-[11px] font-mono font-bold">
+              <span className="text-neutral-700">FIT OPINION:</span>
+              <span className="text-emerald-700">89% TRUE TO FIT</span>
+            </div>
+            <div className="w-full h-2 rounded-full bg-neutral-100 overflow-hidden flex">
+              <div className="bg-neutral-300 h-full" style={{ width: '2%' }} />
+              <div className="bg-[#f6b800] h-full" style={{ width: '89%' }} />
+              <div className="bg-neutral-400 h-full" style={{ width: '9%' }} />
+            </div>
+            <div className="flex justify-between text-[9px] font-mono text-neutral-500">
+              <span>Small (2%)</span>
+              <strong className="text-black">True to Boxy Cut (89%)</strong>
+              <span>Large (9%)</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Feature Benchmarks & Verified Photos Strip (7 cols) */}
-        <div className="lg:col-span-7 space-y-6">
-          
-          {/* Feature Ratings Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {featureRatings.map((feat, idx) => (
-              <div key={idx} className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col justify-between hover:border-black transition-colors">
-                <div>
-                  <span className="text-[10px] font-mono font-bold text-neutral-500 uppercase block">
-                    {feat.benchmark}
-                  </span>
-                  <h4 className="text-xs font-bold text-neutral-900 uppercase mt-0.5">
-                    {feat.label}
-                  </h4>
-                </div>
-                <div className="mt-3 flex items-center justify-between pt-2 border-t border-neutral-200/80">
-                  <div className="flex items-center text-[#f6b800]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-sm font-mono font-black text-black">
-                    {feat.score} / 5.0
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Interactive Customer Fit Photo Lightbox Strip */}
-          <div className="p-4 rounded-2xl bg-neutral-900 text-white border border-neutral-800 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
+        {/* COLUMN 3: VERIFIED FIT PHOTO GALLERY (4 cols) */}
+        <div className="md:col-span-4 p-5 rounded-3xl bg-neutral-950 text-white border border-neutral-800 flex flex-col justify-between space-y-3 shadow-xl">
+          <div>
+            <div className="flex items-center justify-between pb-3 border-b border-neutral-800">
+              <div className="flex items-center gap-1.5">
                 <Camera className="w-4 h-4 text-[#f6b800]" />
-                <span className="text-xs font-mono font-black uppercase tracking-wider">
-                  VERIFIED FIT CHECK GALLERY ({reviewsList.filter((r) => !!r.reviewImage).length}+ PHOTOS)
-                </span>
+                <span className="text-xs font-mono font-black uppercase text-white">CUSTOMER FIT PICS</span>
               </div>
-              <span className="text-[10px] font-mono text-neutral-400">
-                Click any photo to inspect fit
-              </span>
+              <span className="text-[10px] font-mono text-neutral-400">2.4K+ UPLOADS</span>
             </div>
 
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <div className="grid grid-cols-3 gap-2 mt-3">
               {reviewsList
                 .filter((r) => !!r.reviewImage)
                 .slice(0, 6)
@@ -420,11 +406,11 @@ export const ProductReviewsBreakdown: React.FC = () => {
                       src={rev.reviewImage!}
                       alt={rev.name}
                       fill
-                      sizes="150px"
+                      sizes="120px"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Maximize2 className="w-4 h-4 text-white" />
+                      <Maximize2 className="w-3.5 h-3.5 text-white" />
                     </div>
                     <span className="absolute bottom-1 inset-x-1 bg-black/80 text-[8px] font-mono text-center text-amber-300 rounded py-0.5 truncate">
                       {rev.sizePurchased}
@@ -434,6 +420,10 @@ export const ProductReviewsBreakdown: React.FC = () => {
             </div>
           </div>
 
+          <div className="pt-2 border-t border-neutral-800 flex items-center justify-between text-[10px] font-mono text-neutral-400">
+            <span>Verified Customer Fits</span>
+            <span className="text-[#f6b800] font-bold">CLICK TO EXPAND</span>
+          </div>
         </div>
 
       </div>
@@ -449,7 +439,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search keywords (e.g. collar, drape, wash)..."
-            className="w-full pl-9 pr-4 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-black"
+            className="w-full pl-9 pr-4 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900"
           />
         </div>
 
@@ -466,7 +456,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
               onClick={() => setSelectedFilter(pill.id)}
               className={`px-3.5 py-1.5 rounded-full font-mono text-xs font-bold transition-all cursor-pointer ${
                 selectedFilter === pill.id
-                  ? 'bg-black text-[#f6b800] shadow-sm'
+                  ? 'bg-neutral-950 text-[#f6b800] shadow-sm'
                   : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
               }`}
             >
@@ -480,7 +470,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
           <select
             value={selectedSizeFilter}
             onChange={(e) => setSelectedSizeFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs font-bold bg-white focus:border-black"
+            className="px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs font-bold bg-white focus:border-neutral-900"
           >
             <option value="all">All Sizes</option>
             <option value="Size S">Size S</option>
@@ -492,7 +482,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as 'helpful' | 'highest' | 'recent')}
-            className="px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs font-bold bg-white focus:border-black"
+            className="px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs font-bold bg-white focus:border-neutral-900"
           >
             <option value="helpful">Most Helpful</option>
             <option value="highest">Highest Rating</option>
@@ -507,7 +497,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
         
         {/* Spotlight Featured Review Card */}
         {filteredReviews.length > 0 && (
-          <div className="p-6 sm:p-8 rounded-3xl bg-neutral-900 text-white border-2 border-black shadow-xl relative overflow-hidden">
+          <div className="p-6 sm:p-8 rounded-3xl bg-neutral-900 text-white border border-neutral-800 shadow-xl relative overflow-hidden">
             <div className="flex items-center justify-between pb-4 border-b border-neutral-800 mb-6">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#f6b800]" />
@@ -592,7 +582,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
                     <div className="md:col-span-4">
                       <div 
                         onClick={() => setActiveLightboxReview(currentSlide)}
-                        className="relative aspect-3/4 rounded-2xl overflow-hidden border-2 border-neutral-700 cursor-pointer group shadow-lg"
+                        className="relative aspect-3/4 rounded-2xl overflow-hidden border border-neutral-700 cursor-pointer group shadow-lg hover:border-[#f6b800] transition-colors"
                       >
                         <Image
                           src={currentSlide.reviewImage}
@@ -620,13 +610,13 @@ export const ProductReviewsBreakdown: React.FC = () => {
           {filteredReviews.map((rev) => (
             <div
               key={rev.id}
-              className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-black transition-all duration-200 flex flex-col justify-between space-y-3"
+              className="p-5 rounded-2xl bg-neutral-50/80 border border-neutral-200/90 hover:border-neutral-400 hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-3"
             >
               <div>
                 {/* Author row */}
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-neutral-300">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-neutral-200">
                       <Image src={rev.avatar} alt={rev.name} fill sizes="32px" className="object-cover" />
                     </div>
                     <div>
@@ -672,7 +662,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
                 {rev.reviewImage && (
                   <div 
                     onClick={() => setActiveLightboxReview(rev)}
-                    className="relative w-24 h-32 rounded-xl overflow-hidden mt-3 border border-neutral-300 cursor-pointer group"
+                    className="relative w-24 h-32 rounded-xl overflow-hidden mt-3 border border-neutral-200 cursor-pointer group hover:border-neutral-900 transition-colors"
                   >
                     <Image src={rev.reviewImage} alt="User fit photo" fill sizes="100px" className="object-cover group-hover:scale-105 transition-transform" />
                     <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -691,7 +681,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
                   className={`flex items-center gap-1 px-2.5 py-1 rounded-lg border text-xs font-mono transition-colors cursor-pointer ${
                     upvotedIds[rev.id]
                       ? 'bg-emerald-50 border-emerald-300 text-emerald-700 font-bold'
-                      : 'bg-white border-neutral-300 text-neutral-700 hover:border-black'
+                      : 'bg-white border-neutral-200 text-neutral-700 hover:border-neutral-900'
                   }`}
                 >
                   <ThumbsUp className="w-3 h-3" />
@@ -711,102 +701,104 @@ export const ProductReviewsBreakdown: React.FC = () => {
       </div>
 
       {/* ========================================================= */}
-      {/* 5. INTERACTIVE FULL-SCREEN LIGHTBOX MODAL */}
+      {/* LIGHTBOX UGC FIT CHECK MODAL */}
       {/* ========================================================= */}
       {activeLightboxReview && (
         <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6 animate-in fade-in">
-          <div className="bg-white rounded-3xl max-w-3xl w-full border-2 border-black shadow-2xl overflow-hidden relative flex flex-col md:flex-row">
+          <div className="bg-neutral-950 text-white rounded-3xl max-w-3xl w-full border border-neutral-800 shadow-2xl overflow-hidden relative flex flex-col md:flex-row">
             <button
               onClick={() => setActiveLightboxReview(null)}
-              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
+              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/80 hover:bg-neutral-800 text-white flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
 
-            {/* Left: Big Image */}
-            <div className="relative aspect-3/4 md:aspect-auto md:w-1/2 bg-neutral-100">
-              <Image
-                src={activeLightboxReview.reviewImage!}
-                alt={activeLightboxReview.name}
-                fill
-                sizes="500px"
-                className="object-cover object-top"
-              />
-              <div className="absolute bottom-3 left-3 right-3 text-white text-[10px] font-mono bg-black/80 backdrop-blur px-2.5 py-1 rounded">
-                VERIFIED FIT CHECK • {activeLightboxReview.sizePurchased}
-              </div>
+            {/* Left Image */}
+            <div className="relative aspect-3/4 md:aspect-auto md:w-1/2 bg-black">
+              {activeLightboxReview.reviewImage && (
+                <Image
+                  src={activeLightboxReview.reviewImage}
+                  alt={activeLightboxReview.name}
+                  fill
+                  sizes="500px"
+                  className="object-cover"
+                />
+              )}
             </div>
 
-            {/* Right: Review Details */}
+            {/* Right Review Info */}
             <div className="p-6 md:p-8 md:w-1/2 flex flex-col justify-between space-y-4">
               <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-neutral-300">
-                    <Image src={activeLightboxReview.avatar} alt={activeLightboxReview.name} fill sizes="40px" className="object-cover" />
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center text-[#f6b800]">
+                    {[...Array(activeLightboxReview.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="text-sm font-black text-black">{activeLightboxReview.name}</h4>
-                    <span className="text-[10px] font-mono text-emerald-700 font-bold flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                      Verified Purchase • {activeLightboxReview.sizePurchased}
-                    </span>
-                  </div>
+                  <span className="text-xs font-mono text-neutral-400">{activeLightboxReview.date}</span>
                 </div>
 
-                <div className="flex items-center text-[#f6b800] mb-2">
-                  {[...Array(activeLightboxReview.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-
-                <h3 className="text-base font-black uppercase tracking-tight text-neutral-950 mb-2">
-                  {activeLightboxReview.title}
+                <h3 className="text-base font-bold text-white mb-2">
+                  &ldquo;{activeLightboxReview.title}&rdquo;
                 </h3>
-                <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+                <p className="text-xs text-neutral-300 font-mono leading-relaxed">
                   {activeLightboxReview.reviewText}
                 </p>
 
-                <div className="mt-4 p-3 rounded-xl bg-neutral-50 border border-neutral-200 text-xs font-mono space-y-1">
-                  <div><strong>Colorway:</strong> {activeLightboxReview.colorPurchased}</div>
-                  <div><strong>Fit Verdict:</strong> {activeLightboxReview.fitVote}</div>
+                <div className="mt-4 p-3 rounded-xl bg-neutral-900 border border-neutral-800 space-y-1 text-xs font-mono">
+                  <div className="flex justify-between text-neutral-400">
+                    <span>Verified Buyer:</span>
+                    <strong className="text-white">{activeLightboxReview.name}</strong>
+                  </div>
+                  <div className="flex justify-between text-neutral-400">
+                    <span>Size Purchased:</span>
+                    <strong className="text-amber-300">{activeLightboxReview.sizePurchased}</strong>
+                  </div>
+                  <div className="flex justify-between text-neutral-400">
+                    <span>Colorway:</span>
+                    <strong className="text-white">{activeLightboxReview.colorPurchased}</strong>
+                  </div>
+                  <div className="flex justify-between text-neutral-400">
+                    <span>Fit Feedback:</span>
+                    <strong className="text-emerald-400">{activeLightboxReview.fitVote}</strong>
+                  </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-neutral-200 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500">{activeLightboxReview.date}</span>
-                <button
-                  onClick={() => handleUpvote(activeLightboxReview.id)}
-                  className="px-4 py-2 rounded-xl bg-black text-white font-mono text-xs font-bold uppercase flex items-center gap-1.5"
-                >
-                  <ThumbsUp className="w-3.5 h-3.5 text-[#f6b800]" />
-                  <span>Helpful ({activeLightboxReview.helpfulCount})</span>
-                </button>
-              </div>
+              <button
+                onClick={() => setActiveLightboxReview(null)}
+                className="w-full py-3 rounded-xl bg-white text-black font-mono text-xs font-black uppercase hover:bg-[#f6b800] transition-colors cursor-pointer"
+              >
+                CLOSE FIT CHECK
+              </button>
             </div>
           </div>
         </div>
       )}
 
       {/* ========================================================= */}
-      {/* 6. WRITE A VERIFIED REVIEW MODAL */}
+      {/* WRITE A VERIFIED REVIEW MODAL */}
       {/* ========================================================= */}
       {showWriteModal && (
-        <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in">
-          <div className="bg-white rounded-3xl max-w-lg w-full border-2 border-black p-6 sm:p-8 shadow-2xl relative">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6 animate-in fade-in">
+          <div className="bg-white rounded-3xl max-w-lg w-full border border-neutral-200 shadow-2xl p-6 sm:p-8 relative">
             <button
               onClick={() => setShowWriteModal(false)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center font-bold text-sm cursor-pointer"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
             >
-              ✕
+              <X className="w-4 h-4" />
             </button>
 
-            <div className="mb-4 pb-3 border-b border-neutral-200">
-              <span className="text-[10px] font-mono font-black uppercase text-[#e84125] block">
-                // WRITE A VERIFIED FIT CHECK
+            <div className="mb-5">
+              <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#e84125] block mb-1">
+                // VERIFIED COMMUNITY FEEDBACK
               </span>
               <h3 className="text-xl font-black uppercase tracking-tight text-neutral-950">
-                Share Your Streetwear Fit
+                Submit Your Fit Check
               </h3>
+              <p className="text-xs text-neutral-600">
+                Help fellow streetwear collectors get the perfect oversized drape and size.
+              </p>
             </div>
 
             <form onSubmit={handlePostReview} className="space-y-4 text-xs font-mono">
@@ -817,7 +809,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
                   value={newReviewName}
                   onChange={(e) => setNewReviewName(e.target.value)}
                   placeholder="e.g. Siddharth R."
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 focus:border-black focus:outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 focus:outline-none"
                   required
                 />
               </div>
@@ -849,7 +841,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
                   <select
                     value={newReviewSize}
                     onChange={(e) => setNewReviewSize(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 bg-white focus:border-black"
+                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 bg-white focus:border-neutral-900"
                   >
                     <option value="Size S">Size S</option>
                     <option value="Size M">Size M</option>
@@ -876,7 +868,7 @@ export const ProductReviewsBreakdown: React.FC = () => {
                   value={newReviewTitle}
                   onChange={(e) => setNewReviewTitle(e.target.value)}
                   placeholder="e.g. 280 GSM fabric weight is insane..."
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 focus:border-black focus:outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 focus:outline-none"
                   required
                 />
               </div>
@@ -888,14 +880,14 @@ export const ProductReviewsBreakdown: React.FC = () => {
                   value={newReviewText}
                   onChange={(e) => setNewReviewText(e.target.value)}
                   placeholder="How does it feel? How did it survive washing? What is the drape like?"
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 focus:border-black focus:outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 focus:outline-none"
                   required
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-black hover:bg-neutral-800 text-[#f6b800] font-mono text-xs font-black uppercase tracking-wider transition-all active:scale-95 cursor-pointer shadow-lg"
+                className="w-full py-3.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 text-[#f6b800] font-mono text-xs font-black uppercase tracking-wider transition-all active:scale-95 cursor-pointer shadow-lg"
               >
                 {submittedReview ? 'POSTED TO COMMUNITY!' : 'SUBMIT FIT CHECK'}
               </button>

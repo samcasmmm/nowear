@@ -86,7 +86,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
   };
 
   return (
-    <div className="w-full bg-white rounded-3xl border-2 border-black p-5 sm:p-6 shadow-xl relative">
+    <div className="w-full bg-white rounded-3xl border border-neutral-200/90 p-5 sm:p-6 shadow-xl relative ring-1 ring-black/5">
       
       {/* 1. PRICE & DEALS BLOCK */}
       <div className="pb-5 border-b border-neutral-200">
@@ -160,10 +160,10 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
               key={col.name}
               onClick={() => onSelectColor(col.name)}
               title={col.name}
-              className={`w-9 h-9 rounded-full border-2 transition-all relative flex items-center justify-center ${
+              className={`w-9 h-9 rounded-full border transition-all relative flex items-center justify-center ${
                 selectedColor === col.name
-                  ? 'border-black ring-2 ring-[#f6b800] scale-110'
-                  : 'border-neutral-300 hover:border-black'
+                  ? 'border-neutral-900 ring-2 ring-[#f6b800] scale-110 shadow-sm'
+                  : 'border-neutral-300 hover:border-neutral-600'
               }`}
               style={{ backgroundColor: col.hex }}
             >
@@ -183,7 +183,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
           </span>
           <button
             onClick={() => setShowSizeModal(true)}
-            className="text-xs font-mono font-bold text-[#e84125] hover:underline flex items-center gap-1"
+            className="text-xs font-mono font-bold text-[#e84125] hover:underline flex items-center gap-1 cursor-pointer"
           >
             <HelpCircle className="w-3.5 h-3.5" />
             Size Guide
@@ -195,10 +195,10 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
             <button
               key={opt.size}
               onClick={() => onSelectSize(opt.size)}
-              className={`py-2.5 rounded-xl border-2 font-mono text-xs font-black transition-all flex flex-col items-center justify-center ${
+              className={`py-2.5 rounded-xl border font-mono text-xs font-black transition-all flex flex-col items-center justify-center cursor-pointer ${
                 selectedSize === opt.size
-                  ? 'border-black bg-black text-white shadow-md'
-                  : 'border-neutral-200 bg-neutral-50 text-neutral-800 hover:border-black'
+                  ? 'border-neutral-950 bg-neutral-950 text-white shadow-md'
+                  : 'border-neutral-200 bg-neutral-50/80 text-neutral-800 hover:border-neutral-400 hover:bg-white'
               }`}
             >
               <span>{opt.size}</span>
@@ -230,12 +230,12 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
             value={pincode}
             onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
             placeholder="Enter 6-digit Pincode"
-            className="flex-1 px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs font-bold focus:outline-none focus:border-black"
+            className="flex-1 px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs font-bold focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900"
           />
           <button
             type="submit"
             disabled={isCheckingPin}
-            className="px-4 py-2 rounded-xl bg-neutral-900 hover:bg-black text-white text-xs font-mono font-bold uppercase transition-colors"
+            className="px-4 py-2 rounded-xl bg-neutral-900 hover:bg-black text-white text-xs font-mono font-bold uppercase transition-colors cursor-pointer"
           >
             {isCheckingPin ? '...' : 'Check'}
           </button>
@@ -279,7 +279,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
           <select
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
-            className="px-2.5 py-1.5 rounded-lg border border-neutral-300 font-mono text-xs font-black bg-white focus:border-black"
+            className="px-2.5 py-1.5 rounded-lg border border-neutral-300 font-mono text-xs font-black bg-white focus:border-neutral-900"
           >
             {[1, 2, 3, 4, 5].map((q) => (
               <option key={q} value={q}>
@@ -308,7 +308,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
       <div className="pt-5 space-y-3">
         <button
           onClick={handleAddToCart}
-          className="w-full py-3.5 rounded-2xl bg-[#f6b800] hover:bg-[#ffc21a] text-black font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all active:scale-[0.98] border-2 border-black"
+          className="w-full py-4 rounded-2xl bg-[#f6b800] hover:bg-[#ffc21a] text-black font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-500/20 transition-all active:scale-[0.98] border border-black/10"
         >
           {addedToCart ? (
             <>
@@ -325,7 +325,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
 
         <button
           onClick={handleAddToCart}
-          className="w-full py-3.5 rounded-2xl bg-[#e84125] hover:bg-[#d0351b] text-white font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all active:scale-[0.98] border-2 border-black"
+          className="w-full py-4 rounded-2xl bg-[#e84125] hover:bg-[#d0351b] text-white font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-red-500/20 transition-all active:scale-[0.98] border border-black/10"
         >
           <Zap className="w-4 h-4 fill-current" />
           <span>BUY NOW (1-CLICK CHECKOUT)</span>
@@ -384,7 +384,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
       {/* SIZE CHART MODAL POPUP */}
       {showSizeModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border-2 border-black shadow-2xl relative">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-neutral-300 shadow-2xl relative">
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-200">
               <h3 className="text-lg font-black uppercase">NWear Boxy Fit Size Chart</h3>
               <button

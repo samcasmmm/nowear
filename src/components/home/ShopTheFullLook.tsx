@@ -119,7 +119,7 @@ export const ShopTheFullLook: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black text-[#f6b800] font-mono text-xs font-black border border-black shadow-xs">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-950 text-[#f6b800] font-mono text-xs font-black border border-neutral-800 shadow-xs">
               <Sparkles className="w-4 h-4" />
               <span>SAVE UP TO 37% ON FULL BUNDLES</span>
             </span>
@@ -141,7 +141,7 @@ export const ShopTheFullLook: React.FC = () => {
             return (
               <div
                 key={look.id}
-                className="group relative flex flex-col rounded-2xl overflow-hidden bg-white border-2 border-black shadow-sm hover:shadow-2xl transition-all duration-300"
+                className="group relative flex flex-col rounded-3xl overflow-hidden bg-white border border-neutral-200/90 shadow-sm hover:shadow-2xl hover:border-neutral-400 transition-all duration-300"
               >
                 {/* Visual Image with Interactive Hotspots & Quick View Eye Button */}
                 <div className="relative aspect-3/4 w-full overflow-hidden bg-neutral-100">
@@ -158,7 +158,7 @@ export const ShopTheFullLook: React.FC = () => {
 
                   {/* Top Badges */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                    <span className="text-[9px] font-mono font-black uppercase tracking-wider text-black bg-[#f6b800] px-2.5 py-1 rounded shadow-xs">
+                    <span className="text-[9px] font-mono font-black uppercase tracking-wider text-black bg-[#f6b800] px-2.5 py-1 rounded-md shadow-xs">
                       LOOK 0{index + 1}
                     </span>
                     
@@ -166,7 +166,7 @@ export const ShopTheFullLook: React.FC = () => {
                     <button
                       onClick={(e) => handleOpenQuickView(look, e)}
                       title="Quick Inspect Outfit"
-                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/85 hover:bg-black text-white text-[10px] font-mono font-bold uppercase tracking-wider border border-white/30 backdrop-blur-xs transition-all duration-200 hover:scale-105 active:scale-95 shadow-md cursor-pointer group/eye"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/85 hover:bg-black text-white text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 backdrop-blur-xs transition-all duration-200 hover:scale-105 active:scale-95 shadow-md cursor-pointer group/eye"
                     >
                       <Eye className="w-3.5 h-3.5 text-[#f6b800] group-hover/eye:scale-110 transition-transform" />
                       <span>QUICK VIEW</span>
@@ -177,7 +177,7 @@ export const ShopTheFullLook: React.FC = () => {
                   <div className="absolute inset-0 flex items-center justify-center z-15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                     <button
                       onClick={(e) => handleOpenQuickView(look, e)}
-                      className="pointer-events-auto px-4 py-2 rounded-xl bg-white text-black font-mono text-xs font-black uppercase tracking-wider flex items-center gap-2 shadow-2xl border-2 border-black hover:bg-[#f6b800] hover:text-black transition-all transform -translate-y-2 group-hover:translate-y-0 duration-300 cursor-pointer"
+                      className="pointer-events-auto px-4 py-2 rounded-xl bg-white text-black font-mono text-xs font-black uppercase tracking-wider flex items-center gap-2 shadow-2xl border border-neutral-200 hover:border-neutral-900 hover:bg-[#f6b800] hover:text-black transition-all transform -translate-y-2 group-hover:translate-y-0 duration-300 cursor-pointer"
                     >
                       <Eye className="w-4 h-4 text-[#e84125]" />
                       <span>INSPECT OUTFIT</span>
@@ -199,12 +199,12 @@ export const ShopTheFullLook: React.FC = () => {
                         <button
                           onClick={(e) => handleOpenQuickView(look, e)}
                           aria-label={`View ${pin.label}`}
-                          className="w-6 h-6 rounded-full bg-white text-black font-black text-xs flex items-center justify-center shadow-lg border-2 border-black hover:scale-125 transition-transform cursor-pointer"
+                          className="w-6 h-6 rounded-full bg-white text-black font-black text-xs flex items-center justify-center shadow-lg border border-neutral-900 hover:scale-125 transition-transform cursor-pointer"
                         >
                           <Plus className="w-3.5 h-3.5" />
                         </button>
                         {isPinActive && (
-                          <div className="absolute left-8 top-1/2 -translate-y-1/2 whitespace-nowrap bg-black text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded shadow-xl border border-white/20 animate-in fade-in z-30">
+                          <div className="absolute left-8 top-1/2 -translate-y-1/2 whitespace-nowrap bg-black text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded-md shadow-xl border border-white/20 animate-in fade-in z-30">
                             <span>{pin.label} (₹{pin.price})</span>
                           </div>
                         )}
@@ -289,8 +289,8 @@ export const ShopTheFullLook: React.FC = () => {
                             onClick={(e) => handleSelectSize(look.id, size, e)}
                             className={`py-1 text-[10px] font-mono font-black uppercase rounded border transition-all cursor-pointer ${
                               currentSize === size
-                                ? 'bg-black text-[#f6b800] border-black shadow-xs'
-                                : 'bg-white text-neutral-700 border-neutral-300 hover:bg-neutral-100 hover:border-black'
+                                ? 'bg-neutral-950 text-[#f6b800] border-neutral-900 shadow-xs'
+                                : 'bg-white text-neutral-700 border-neutral-200 hover:bg-neutral-100 hover:border-neutral-400'
                             }`}
                           >
                             {size}
@@ -332,7 +332,7 @@ export const ShopTheFullLook: React.FC = () => {
         {/* ========================================================= */}
         {quickViewLook && (
           <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6 animate-in fade-in">
-            <div className="bg-white rounded-3xl max-w-3xl w-full border-2 border-black shadow-2xl overflow-hidden relative flex flex-col md:flex-row">
+            <div className="bg-white rounded-3xl max-w-3xl w-full border border-neutral-200 shadow-2xl overflow-hidden relative flex flex-col md:flex-row">
               
               {/* Modal Close Button */}
               <button
@@ -415,8 +415,8 @@ export const ShopTheFullLook: React.FC = () => {
                             onClick={(e) => handleSelectSize(quickViewLook.id, s, e)}
                             className={`py-2 text-xs font-mono font-black uppercase rounded-xl border transition-all ${
                               currentS === s
-                                ? 'bg-black text-[#f6b800] border-black shadow-sm'
-                                : 'bg-white text-neutral-800 border-neutral-300 hover:border-black'
+                                ? 'bg-neutral-950 text-[#f6b800] border-neutral-900 shadow-sm'
+                                : 'bg-white text-neutral-800 border-neutral-200 hover:border-neutral-900'
                             }`}
                           >
                             {s}
@@ -434,7 +434,7 @@ export const ShopTheFullLook: React.FC = () => {
                       handleClaimLook(quickViewLook, e);
                       setQuickViewLook(null);
                     }}
-                    className="w-full py-3.5 rounded-2xl bg-[#f6b800] hover:bg-[#ffc21a] text-black font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 border-2 border-black shadow-lg active:scale-95 transition-all"
+                    className="w-full py-3.5 rounded-2xl bg-[#f6b800] hover:bg-[#ffc21a] text-black font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 border border-black/10 shadow-lg active:scale-95 transition-all cursor-pointer"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>CLAIM FULL LOOK ({selectedSizes[quickViewLook.id] || 'M (32)'})</span>
@@ -457,7 +457,7 @@ export const ShopTheFullLook: React.FC = () => {
         )}
 
         {/* Bottom Editorial Lookbook Ribbon */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl border-2 border-black bg-neutral-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-950 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center md:text-left">
             <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#f6b800] block">
               // NEED CUSTOM STYLING?

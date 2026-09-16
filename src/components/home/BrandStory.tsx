@@ -538,7 +538,7 @@ export const BrandStory: React.FC = () => {
         {/* 6. BRAND MANIFESTO QUOTE & INTERACTIVE COPY CALLOUT */}
         {/* ========================================================= */}
         <div className="pt-12">
-          <div className="p-6 sm:p-8 rounded-3xl bg-neutral-900 border-2 border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="p-6 sm:p-8 rounded-3xl bg-neutral-950 border border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-[#e84125] text-white flex items-center justify-center shrink-0 font-mono font-black text-xl shadow-lg">
                 &ldquo;

@@ -93,10 +93,10 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full bg-white text-neutral-950 border-t-2 border-black font-sans selection:bg-[#f6b800] selection:text-black">
+    <footer className="w-full bg-white text-neutral-950 border-t border-neutral-200 font-sans selection:bg-[#f6b800] selection:text-black">
       
       {/* 1. HIGH-ENERGY RUNWAY MARQUEE RIBBON */}
-      <div className="w-full bg-[#f6b800] border-b-2 border-black py-3 overflow-hidden select-none">
+      <div className="w-full bg-[#f6b800] border-b border-neutral-200 py-3 overflow-hidden select-none">
         <Marquee speed={65} autoFill className="overflow-hidden">
           <span className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-black mx-6 font-mono flex items-center gap-4">
             <span>NWEAR STUDIO</span>
@@ -117,9 +117,9 @@ export const Footer: React.FC = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pt-10 pb-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           
-          <div className="p-4 rounded-xl border-2 border-black bg-neutral-50 hover:bg-amber-50/60 transition-colors shadow-xs group">
+          <div className="p-4 rounded-2xl border border-neutral-200/90 bg-neutral-50/80 hover:bg-white hover:border-neutral-400 transition-all shadow-xs group">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-black text-[#f6b800] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-black text-[#f6b800] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
                 <Truck className="w-5 h-5" />
               </div>
               <div>
@@ -133,9 +133,9 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl border-2 border-black bg-neutral-50 hover:bg-blue-50/60 transition-colors shadow-xs group">
+          <div className="p-4 rounded-2xl border border-neutral-200/90 bg-neutral-50/80 hover:bg-white hover:border-neutral-400 transition-all shadow-xs group">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-black text-blue-300 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-black text-blue-300 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
                 <RefreshCw className="w-5 h-5" />
               </div>
               <div>
@@ -149,9 +149,9 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl border-2 border-black bg-neutral-50 hover:bg-amber-50/60 transition-colors shadow-xs group">
+          <div className="p-4 rounded-2xl border border-neutral-200/90 bg-neutral-50/80 hover:bg-white hover:border-neutral-400 transition-all shadow-xs group">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-black text-[#f6b800] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-black text-[#f6b800] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
                 <Sparkles className="w-5 h-5" />
               </div>
               <div>
@@ -165,9 +165,9 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl border-2 border-black bg-neutral-50 hover:bg-emerald-50/60 transition-colors shadow-xs group">
+          <div className="p-4 rounded-2xl border border-neutral-200/90 bg-neutral-50/80 hover:bg-white hover:border-neutral-400 transition-all shadow-xs group">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-black text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-black text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
@@ -192,7 +192,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* The Vault Card */}
-            <div className="p-6 rounded-2xl border-2 border-black bg-neutral-50 shadow-sm relative overflow-hidden">
+            <div className="p-6 rounded-3xl border border-neutral-200/90 bg-neutral-50/70 shadow-sm relative overflow-hidden">
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-3 h-3 bg-[#e84125] inline-block rotate-45" />
                 <span className="text-[11px] font-mono font-black uppercase tracking-widest text-[#e84125]">
@@ -208,19 +208,19 @@ export const Footer: React.FC = () => {
               </p>
 
               {vaultUnlocked ? (
-                <div className="p-4 border-2 border-black bg-emerald-50 rounded-xl space-y-3">
+                <div className="p-4 border border-emerald-300 bg-emerald-50/80 rounded-2xl space-y-3">
                   <div className="flex items-center gap-2 text-xs font-bold text-emerald-900">
                     <Check className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>You&apos;re officially on the Secret Vault List!</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-white border border-emerald-300 rounded-lg">
+                  <div className="flex items-center justify-between p-3 bg-white border border-emerald-200 rounded-xl">
                     <div>
                       <span className="text-[10px] font-mono text-neutral-500 block uppercase">YOUR ₹500 VOUCHER:</span>
                       <span className="font-mono font-black text-sm tracking-wider text-black">NWEAR-VAULT500</span>
                     </div>
                     <button
                       onClick={copyVoucher}
-                      className="px-3 py-1.5 bg-black text-white text-xs font-bold rounded flex items-center gap-1.5 hover:bg-neutral-800 transition-all cursor-pointer"
+                      className="px-3 py-1.5 bg-black text-white text-xs font-bold rounded-lg flex items-center gap-1.5 hover:bg-neutral-800 transition-all cursor-pointer"
                     >
                       {couponCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{couponCopied ? 'COPIED!' : 'COPY'}</span>
@@ -439,7 +439,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="w-8 h-8 rounded-lg border-2 border-black bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs"
+              className="w-8 h-8 rounded-lg border border-neutral-200 bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs hover:border-black"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -452,7 +452,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp"
-              className="w-8 h-8 rounded-lg border-2 border-black bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs"
+              className="w-8 h-8 rounded-lg border border-neutral-200 bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs hover:border-black"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -465,7 +465,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="X"
-              className="w-8 h-8 rounded-lg border-2 border-black bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs"
+              className="w-8 h-8 rounded-lg border border-neutral-200 bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs hover:border-black"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -478,7 +478,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="Spotify"
-              className="w-8 h-8 rounded-lg border-2 border-black bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs"
+              className="w-8 h-8 rounded-lg border border-neutral-200 bg-white hover:bg-black text-black hover:text-white flex items-center justify-center transition-all shadow-2xs hover:border-black"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.503 17.308c-.216.353-.672.464-1.025.248-2.806-1.715-6.338-2.102-10.499-1.152-.403.092-.808-.16-.9-.563-.092-.403.16-.808.563-.9 4.557-1.041 8.461-.599 11.613 1.332.353.216.464.672.248 1.035zm1.47-3.266c-.272.441-.85.579-1.291.307-3.212-1.975-8.11-2.546-11.91-1.392-.497.151-1.026-.134-1.177-.63-.151-.497.134-1.026.63-1.177 4.343-1.319 9.754-.683 13.441 1.585.441.272.579.85.307 1.307zm.126-3.41c-3.85-2.287-10.205-2.498-13.876-1.383-.591.18-1.222-.154-1.401-.745-.18-.591.154-1.222.745-1.401 4.227-1.284 11.238-1.036 15.672 1.597.531.315.705 1.004.39 1.535-.315.531-1.004.705-1.53.397z"/>
@@ -486,7 +486,7 @@ export const Footer: React.FC = () => {
             </a>
 
             {/* Accent Badge */}
-            <div className="w-8 h-8 rounded-lg border-2 border-black bg-[#f6b800] text-black font-mono font-black flex items-center justify-center text-[10px]">
+            <div className="w-8 h-8 rounded-lg border border-amber-400 bg-[#f6b800] text-black font-mono font-black flex items-center justify-center text-[10px] shadow-xs">
               NW
             </div>
           </div>
@@ -494,7 +494,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* 5. BESPOKE MASSIVE GRAPHIC TYPOGRAPHY */}
-        <div className="mt-10 mb-2 select-none pointer-events-none w-full overflow-hidden border-t-2 border-black pt-4">
+        <div className="mt-10 mb-2 select-none pointer-events-none w-full overflow-hidden border-t border-neutral-200 pt-4">
           <div className="flex items-center justify-center font-black tracking-tighter uppercase leading-none text-[24vw] sm:text-[22vw] md:text-[20vw] whitespace-nowrap text-center">
             <span className="text-[#e84125]">NWEAR.</span>
           </div>

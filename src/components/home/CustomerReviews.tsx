@@ -138,7 +138,7 @@ export const CustomerReviews: React.FC = () => {
           </div>
 
           {/* Live Rating Scoreboard Box */}
-          <div className="p-4 sm:p-5 rounded-2xl border-2 border-black bg-neutral-50 shadow-sm flex flex-wrap items-center gap-4 sm:gap-6 shrink-0">
+          <div className="p-4 sm:p-5 rounded-3xl border border-neutral-200/90 bg-neutral-50/80 shadow-sm flex flex-wrap items-center gap-4 sm:gap-6 shrink-0">
             {/* Rating Average */}
             <div className="flex items-center gap-3 pr-4 sm:pr-6 border-r border-neutral-200">
               <span className="text-3xl sm:text-4xl font-black font-mono text-neutral-950">
@@ -178,8 +178,8 @@ export const CustomerReviews: React.FC = () => {
               onClick={() => setActiveFilter(filter)}
               className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 shrink-0 cursor-pointer ${
                 activeFilter === filter
-                  ? 'bg-black text-[#f6b800] shadow-md border-2 border-black'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border-2 border-transparent'
+                  ? 'bg-neutral-950 text-[#f6b800] shadow-md border border-neutral-900'
+                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-200/60'
               }`}
             >
               {filter}
@@ -196,7 +196,7 @@ export const CustomerReviews: React.FC = () => {
             return (
               <div
                 key={review.id}
-                className="group flex flex-col rounded-2xl overflow-hidden bg-white border-2 border-black shadow-sm hover:shadow-2xl transition-all duration-300 relative"
+                className="group flex flex-col rounded-3xl overflow-hidden bg-white border border-neutral-200/90 shadow-sm hover:shadow-2xl hover:border-neutral-400 transition-all duration-300 relative"
               >
                 {/* Visual Fit Photo */}
                 <div className="relative aspect-4/3 w-full overflow-hidden bg-neutral-100">
@@ -260,7 +260,7 @@ export const CustomerReviews: React.FC = () => {
 
                     <button
                       onClick={() => handleHelpful(review.id)}
-                      className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition-colors cursor-pointer ${
+                      className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold transition-colors cursor-pointer ${
                         hasVoted
                           ? 'bg-emerald-50 text-emerald-700 border border-emerald-300'
                           : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-700'
@@ -277,7 +277,7 @@ export const CustomerReviews: React.FC = () => {
         </div>
 
         {/* 4. COMMUNITY LOOKBOOK & UGC BANNER */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl border-2 border-black bg-[#f6b800] text-black flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl border border-amber-400 bg-[#f6b800] text-black flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center font-mono font-black text-lg shrink-0 shadow-xs">
               #NW

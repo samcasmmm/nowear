@@ -98,7 +98,7 @@ export const MatchTheMood: React.FC = () => {
                 href={item.href}
                 onMouseEnter={() => setHoveredMood(item.id)}
                 onMouseLeave={() => setHoveredMood(null)}
-                className="group relative flex flex-col overflow-hidden rounded-2xl bg-neutral-950 border-2 border-black shadow-md hover:shadow-2xl transition-all duration-500"
+                className="group relative flex flex-col overflow-hidden rounded-3xl bg-neutral-950 border border-neutral-850 hover:border-neutral-600 shadow-md hover:shadow-2xl transition-all duration-500"
               >
                 {/* Visual Image Container */}
                 <div className="relative aspect-3/4 w-full overflow-hidden bg-neutral-900">

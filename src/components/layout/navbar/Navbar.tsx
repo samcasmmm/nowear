@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileTab('men')}
               className={`py-3 transition-colors ${
                 mobileTab === 'men'
-                  ? 'bg-white border-b-2 border-black text-black'
+                  ? 'bg-white border-b-2 border-neutral-950 text-black font-black'
                   : 'text-neutral-500 hover:text-black'
               }`}
             >
@@ -174,7 +174,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileTab('women')}
               className={`py-3 transition-colors ${
                 mobileTab === 'women'
-                  ? 'bg-white border-b-2 border-black text-black'
+                  ? 'bg-white border-b-2 border-neutral-950 text-black font-black'
                   : 'text-neutral-500 hover:text-black'
               }`}
             >
@@ -184,7 +184,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileTab('drops')}
               className={`py-3 transition-colors flex items-center justify-center gap-1 ${
                 mobileTab === 'drops'
-                  ? 'bg-white border-b-2 border-black text-black'
+                  ? 'bg-white border-b-2 border-neutral-950 text-black font-black'
                   : 'text-neutral-500 hover:text-black'
               }`}
             >
@@ -226,7 +226,7 @@ export const Navbar: React.FC = () => {
             )}
 
             {/* VIP Club Promo Card */}
-            <div className="mt-6 p-4 rounded-xl border-2 border-black bg-[#f6b800] text-black">
+            <div className="mt-6 p-4 rounded-2xl border border-amber-400 bg-[#f6b800] text-black shadow-md">
               <div className="flex items-center gap-1.5 font-mono font-black text-[10px] uppercase tracking-widest mb-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>VAULT VIP PASS</span>

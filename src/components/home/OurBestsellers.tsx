@@ -137,7 +137,7 @@ export const OurBestsellers: React.FC = () => {
             return (
               <div
                 key={product.id}
-                className="group relative flex flex-col rounded-2xl overflow-hidden bg-white border border-neutral-200/90 shadow-2xs hover:shadow-xl hover:border-black transition-all duration-300"
+                className="group relative flex flex-col rounded-3xl overflow-hidden bg-white border border-neutral-200/90 shadow-2xs hover:shadow-2xl hover:border-neutral-400 transition-all duration-300"
               >
                 {/* 1. PRODUCT IMAGE CONTAINER */}
                 <Link
@@ -212,8 +212,8 @@ export const OurBestsellers: React.FC = () => {
                           onClick={(e) => handleSelectSize(product.id, size, e)}
                           className={`py-1 text-[10px] font-mono font-black uppercase rounded border transition-all cursor-pointer ${
                             currentSize === size
-                              ? 'bg-black text-[#f6b800] border-black shadow-xs'
-                              : 'bg-neutral-50 text-neutral-800 border-neutral-200 hover:bg-neutral-200 hover:border-black'
+                              ? 'bg-neutral-950 text-[#f6b800] border-neutral-900 shadow-xs'
+                              : 'bg-neutral-50 text-neutral-800 border-neutral-200 hover:bg-neutral-200 hover:border-neutral-400'
                           }`}
                         >
                           {size}
@@ -243,7 +243,7 @@ export const OurBestsellers: React.FC = () => {
                             aria-label={`Select color variant ${cIdx + 1}`}
                             className={`w-3 h-3 rounded-full border transition-all cursor-pointer ${
                               activeColor === cIdx
-                                ? 'scale-125 border-black ring-1 ring-black'
+                                ? 'scale-125 border-neutral-900 ring-2 ring-[#f6b800]'
                                 : 'border-neutral-300 hover:scale-110'
                             }`}
                             style={{ backgroundColor: c }}
@@ -301,7 +301,7 @@ export const OurBestsellers: React.FC = () => {
         </div>
 
         {/* View All Collection Banner CTA */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl border-2 border-black bg-neutral-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-950 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-300 font-mono text-[10px] font-black uppercase tracking-widest">
               <Sparkles className="w-3.5 h-3.5" />

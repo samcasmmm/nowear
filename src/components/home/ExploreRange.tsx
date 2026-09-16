@@ -98,7 +98,7 @@ export const ExploreRange: React.FC = () => {
               <Link
                 key={card.id}
                 href={card.href}
-                className="group relative flex flex-col rounded-2xl overflow-hidden bg-neutral-900 text-white border border-neutral-200 shadow-sm hover:shadow-2xl hover:border-black transition-all duration-500"
+                className="group relative flex flex-col rounded-3xl overflow-hidden bg-neutral-950 text-white border border-neutral-850 shadow-sm hover:shadow-2xl hover:border-neutral-600 transition-all duration-500"
               >
                 {/* Visual Image Container */}
                 <div className="relative aspect-4/5 w-full overflow-hidden bg-neutral-950">
