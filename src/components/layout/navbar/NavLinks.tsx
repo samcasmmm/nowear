@@ -1,8 +1,14 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import React from 'react';
 
-type NavLinksProps = { href: string; label: string; className?: string };
-const NavLinks: React.FC<NavLinksProps> = ({ href, label, className }) => (
+export interface NavLinksProps {
+  href: string;
+  label: string;
+  className?: string;
+}
+
+export const NavLinks: React.FC<NavLinksProps> = ({ href, label, className }) => (
   <Link
     href={href}
     className={cn(

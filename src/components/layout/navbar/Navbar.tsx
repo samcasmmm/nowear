@@ -1,11 +1,10 @@
-"use client";
-import React, { useState } from "react";
-import Icon from "@/components/Icon";
-import { Baby, Search, ShoppingBag, ShoppingBasket } from "lucide-react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+'use client';
+
+import React from 'react';
+import { Search, ShoppingBag } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 import {
   Sheet,
   SheetContent,
@@ -13,22 +12,24 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import NavigationLinks from "@/components/navbar/Navigation";
+} from '@/components/ui/sheet';
+import { Icon } from '@/components/ui/Icon';
+import NavLinks from './NavLinks';
+import Navigation from './Navigation';
 
-type Props = {};
+export interface NavbarProps {}
 
 const navLinks = [
-  { href: "/men", label: "Men" },
-  { href: "/women", label: "Women" },
-  { href: "/summer-tee", label: "Summer T-Shirt" },
-  { href: "/oversized-tee", label: "Oversized T-Shirt" },
+  { href: '/men', label: 'Men' },
+  { href: '/women', label: 'Women' },
+  { href: '/summer-tee', label: 'Summer T-Shirt' },
+  { href: '/oversized-tee', label: 'Oversized T-Shirt' },
 ];
 
 const BrandLogo = () => (
-  <Link href={"/"}>
+  <Link href="/">
     <Image
-      src={"/images/logo_dark.png"}
+      src="/images/logo_dark.png"
       alt="NoWear Logo"
       width={120}
       height={36}
@@ -37,24 +38,11 @@ const BrandLogo = () => (
   </Link>
 );
 
-type NavLinksProps = { href: string; label: string; className?: string };
-const NavLinks: React.FC<NavLinksProps> = ({ href, label, className }) => (
-  <Link
-    href={href}
-    className={cn(
-      "hover:opacity-100 opacity-60 transition-opacity duration-300",
-      className,
-    )}
-  >
-    {label}
-  </Link>
-);
-
 const SearchBar: React.FC<{ className?: string }> = ({ className }) => (
   <div
     className={cn(
-      "border border-neutral-200 bg-neutral-50/80 hover:bg-white hover:border-neutral-400 focus-within:bg-white focus-within:border-neutral-900 flex items-center justify-center flex-row px-3 py-1.5 rounded-full transition-all duration-200 w-48 lg:w-64",
-      className,
+      'border border-neutral-200 bg-neutral-50/80 hover:bg-white hover:border-neutral-400 focus-within:bg-white focus-within:border-neutral-900 flex items-center justify-center flex-row px-3 py-1.5 rounded-full transition-all duration-200 w-48 lg:w-64',
+      className
     )}
   >
     <Search className="w-4 h-4 text-neutral-400" />
@@ -66,7 +54,7 @@ const SearchBar: React.FC<{ className?: string }> = ({ className }) => (
   </div>
 );
 
-const Navbar = (props: Props) => {
+export const Navbar: React.FC<NavbarProps> = () => {
   return (
     <Sheet>
       <header className="border-b border-neutral-200/80 bg-white/95 backdrop-blur-md sticky top-0 z-40">
@@ -76,7 +64,7 @@ const Navbar = (props: Props) => {
               <Icon name="Menu" />
             </SheetTrigger>
             <BrandLogo />
-            <NavigationLinks />
+            <Navigation />
           </div>
           <div className="flex items-center justify-center gap-3.5 flex-row">
             <SearchBar className="hidden md:flex" />
@@ -96,12 +84,12 @@ const Navbar = (props: Props) => {
           </div>
         </div>
       </header>
-      <SheetContent side={"left"}>
+      <SheetContent side="left">
         <SheetHeader>
           <SheetTitle className="flex items-center justify-center">
             <BrandLogo />
           </SheetTitle>
-          <SheetDescription className="">
+          <SheetDescription>
             <div className="flex sm:hidden items-start justify-center space-y-6 flex-col font-bold mt-4">
               {navLinks.map((link, index) => (
                 <NavLinks

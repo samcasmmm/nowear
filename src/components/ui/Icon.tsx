@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { LucideProps, icons } from 'lucide-react';
 
-interface IconProps extends LucideProps {
+export interface IconProps extends LucideProps {
   name: keyof typeof icons;
   color?: string;
   size?: number;
@@ -10,9 +10,10 @@ interface IconProps extends LucideProps {
 
 const Icon: React.FC<IconProps> = ({
   name,
-  color = 'black',
+  color = 'currentColor',
   size = 24,
   className,
+  ...props
 }) => {
   const LucideIcon = icons[name];
 
@@ -21,7 +22,8 @@ const Icon: React.FC<IconProps> = ({
     return null;
   }
 
-  return <LucideIcon color={color} size={size} className={cn('', className)} />;
+  return <LucideIcon color={color} size={size} className={cn('', className)} {...props} />;
 };
 
 export default Icon;
+export { Icon };

@@ -1,14 +1,14 @@
-import Header from '@/components/Header';
-import Navbar from '@/components/Navbar';
-import MatchTheMood from '@/components/home/MatchTheMood';
-import ShopByCategory from '@/components/home/ShopByCategory';
-import ShopTheFullLook from '@/components/home/ShopTheFullLook';
-import BrandStory from '@/components/home/BrandStory';
-import AutumnEscapes from '@/components/home/AutumnEscapes';
-import OurBestsellers from '@/components/home/OurBestsellers';
-import ExploreRange from '@/components/home/ExploreRange';
-import CustomerReviews from '@/components/home/CustomerReviews';
-import Footer from '@/components/Footer';
+import { Header, Navbar, Footer } from '@/components/layout';
+import {
+  MatchTheMood,
+  ShopByCategory,
+  ShopTheFullLook,
+  BrandStory,
+  AutumnEscapes,
+  OurBestsellers,
+  ExploreRange,
+  CustomerReviews,
+} from '@/components/home';
 
 export default function Home() {
   return (

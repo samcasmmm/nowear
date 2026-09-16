@@ -1,8 +1,10 @@
 'use client';
+
+import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { Sparkles, Truck, ShieldCheck, RefreshCw } from 'lucide-react';
 
-const Header = () => {
+export const Header: React.FC = () => {
   return (
     <div className="w-full bg-[#242F66] py-2 px-4 overflow-hidden">
       <Marquee speed={40} pauseOnHover className="text-white text-xs font-semibold tracking-wider">
@@ -28,4 +30,3 @@ const Header = () => {
 };
 
 export default Header;
-

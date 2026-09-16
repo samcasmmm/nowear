@@ -26,7 +26,7 @@ const careTags = [
   { label: '#HELP & FAQS', href: '/faqs' },
 ];
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');

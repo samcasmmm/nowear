@@ -1,18 +1,19 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import Icon from '../Icon';
 
-interface CarouselProps {
+export interface NewCarouselProps {
   children: React.ReactNode[];
   autoSlide?: boolean;
   autoSlideInterval?: number;
 }
 
-export default function Carousel({
+export const NewCarousel: React.FC<NewCarouselProps> = ({
   children: slides,
   autoSlide = false,
   autoSlideInterval = 3000,
-}: CarouselProps) {
+}) => {
   const [curr, setCurr] = useState(0);
 
   const prev = () =>
@@ -24,38 +25,39 @@ export default function Carousel({
     if (!autoSlide) return;
     const slideInterval = setInterval(next, autoSlideInterval);
     return () => clearInterval(slideInterval);
-  }, []);
+  }, [autoSlide, autoSlideInterval]);
 
   return (
-    <div className='overflow-hidden relative'>
+    <div className="overflow-hidden relative">
       <div
-        className='flex transition-transform ease-out duration-500'
+        className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides}
       </div>
-      <div className='absolute inset-0 flex items-center justify-between p-4'>
+      <div className="absolute inset-0 flex items-center justify-between p-4">
         <button
           onClick={prev}
-          className='p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white'
+          aria-label="Previous slide"
+          className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white transition-colors cursor-pointer"
         >
-          {/* <ChevronLeft size={40} /> */}
-          <Icon name='ChevronLeft' />
+          <Icon name="ChevronLeft" />
         </button>
         <button
           onClick={next}
-          className='p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white'
+          aria-label="Next slide"
+          className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white transition-colors cursor-pointer"
         >
-          {/* <ChevronRight size={40} /> */}
-          <Icon name='ChevronRight' />
+          <Icon name="ChevronRight" />
         </button>
       </div>
 
-      <div className='absolute bottom-4 right-0 left-0'>
-        <div className='flex items-center justify-center gap-2'>
+      <div className="absolute bottom-4 right-0 left-0">
+        <div className="flex items-center justify-center gap-2">
           {slides.map((_, i) => (
             <div
               key={i}
+              onClick={() => setCurr(i)}
               className={`
                 transition-all w-3 h-3 bg-white rounded-full cursor-pointer
                 ${curr === i ? 'p-2' : 'bg-opacity-50'}
@@ -66,4 +68,6 @@ export default function Carousel({
       </div>
     </div>
   );
-}
+};
+
+export default NewCarousel;
