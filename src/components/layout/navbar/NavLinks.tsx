@@ -1,22 +1,38 @@
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 export interface NavLinksProps {
   href: string;
   label: string;
+  badge?: string;
   className?: string;
+  onClick?: () => void;
 }
 
-export const NavLinks: React.FC<NavLinksProps> = ({ href, label, className }) => (
+export const NavLinks: React.FC<NavLinksProps> = ({
+  href,
+  label,
+  badge,
+  className,
+  onClick,
+}) => (
   <Link
     href={href}
+    onClick={onClick}
     className={cn(
-      'text-xs uppercase tracking-wider font-bold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-neutral-950',
+      'flex items-center justify-between text-sm uppercase tracking-wider font-black text-neutral-800 hover:text-black transition-colors duration-200 py-3 border-b border-neutral-100',
       className
     )}
   >
-    {label}
+    <span>{label}</span>
+    {badge && (
+      <span className="text-[9px] font-mono font-black uppercase text-black bg-[#f6b800] px-2 py-0.5 rounded-sm">
+        {badge}
+      </span>
+    )}
   </Link>
 );
 
