@@ -86,49 +86,49 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
   };
 
   return (
-    <div className="w-full bg-white rounded-3xl border border-neutral-200/90 p-5 sm:p-6 shadow-xl relative ring-1 ring-black/5">
+    <div className="w-full bg-white rounded-3xl border border-neutral-200/90 p-4 sm:p-5 shadow-xl relative ring-1 ring-black/5 space-y-3.5">
       
       {/* 1. PRICE & DEALS BLOCK */}
-      <div className="pb-5 border-b border-neutral-200">
+      <div className="pb-3.5 border-b border-neutral-200">
         
         {/* Limited Time Deal Banner */}
-        <div className="flex items-center gap-2 mb-2.5">
-          <span className="px-2.5 py-1 rounded bg-[#e84125] text-white text-[10px] font-mono font-black uppercase tracking-wider">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="px-2 py-0.5 rounded bg-[#e84125] text-white text-[10px] font-mono font-black uppercase tracking-wider">
             LIMITED TIME DEAL
           </span>
-          <span className="text-xs font-mono font-bold text-red-600 flex items-center gap-1">
+          <span className="text-[11px] font-mono font-bold text-red-600 flex items-center gap-1">
             <Clock className="w-3.5 h-3.5" />
             Ends in 04h 18m 32s
           </span>
         </div>
 
         {/* Primary Pricing */}
-        <div className="flex items-baseline gap-3">
-          <span className="text-3xl sm:text-4xl font-black font-mono text-neutral-950">
+        <div className="flex items-baseline gap-2.5">
+          <span className="text-2xl sm:text-3xl font-black font-mono text-neutral-950">
             ₹{effectivePrice.toLocaleString('en-IN')}
           </span>
-          <span className="text-lg font-mono text-neutral-400 line-through">
+          <span className="text-base font-mono text-neutral-400 line-through">
             ₹{originalPrice.toLocaleString('en-IN')}
           </span>
-          <span className="text-sm font-black font-mono text-emerald-600 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+          <span className="text-xs font-black font-mono text-emerald-600 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
             {discount}% OFF
           </span>
         </div>
 
-        <div className="mt-1 flex items-center gap-2 text-xs text-neutral-500 font-mono">
+        <div className="mt-1 flex items-center gap-2 text-[11px] text-neutral-500 font-mono">
           <span>Inclusive of all taxes</span>
           <span>•</span>
-          <span className="text-emerald-700 font-bold">You save ₹{totalSavings.toLocaleString('en-IN')}</span>
+          <span className="text-emerald-700 font-bold">Save ₹{totalSavings.toLocaleString('en-IN')}</span>
         </div>
 
         {/* 1-Click Coupon Checkbox */}
-        <div className="mt-4 p-3 rounded-2xl bg-amber-50 border border-amber-300 flex items-center justify-between">
-          <label className="flex items-center gap-2.5 cursor-pointer select-none">
+        <div className="mt-3 p-2.5 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-between">
+          <label className="flex items-center gap-2 cursor-pointer select-none">
             <input
               type="checkbox"
               checked={couponApplied}
               onChange={(e) => setCouponApplied(e.target.checked)}
-              className="w-4 h-4 rounded text-[#e84125] focus:ring-[#e84125] border-neutral-400"
+              className="w-3.5 h-3.5 rounded text-[#e84125] focus:ring-[#e84125] border-neutral-400 cursor-pointer"
             />
             <div>
               <span className="text-xs font-bold text-neutral-900 block">
@@ -139,28 +139,28 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
               </span>
             </div>
           </label>
-          <span className="text-[10px] font-mono font-black text-amber-900 uppercase bg-amber-200/80 px-2 py-0.5 rounded">
-            COUPON: FIRST150
+          <span className="text-[9px] font-mono font-black text-amber-900 uppercase bg-amber-200/80 px-2 py-0.5 rounded">
+            FIRST150
           </span>
         </div>
       </div>
 
       {/* 2. COLOR SWATCHES SELECTOR */}
-      <div className="py-4 border-b border-neutral-200">
-        <div className="flex items-center justify-between mb-2.5">
+      <div className="pb-3 border-b border-neutral-200">
+        <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-mono font-bold uppercase text-neutral-600">
             Color: <strong className="text-neutral-950 font-sans">{selectedColor}</strong>
           </span>
-          <span className="text-[10px] font-mono text-neutral-500">4 Shades Available</span>
+          <span className="text-[10px] font-mono text-neutral-500">4 Shades</span>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
           {colorVariants.map((col) => (
             <button
               key={col.name}
               onClick={() => onSelectColor(col.name)}
               title={col.name}
-              className={`w-9 h-9 rounded-full border transition-all relative flex items-center justify-center ${
+              className={`w-8 h-8 rounded-full border transition-all relative flex items-center justify-center cursor-pointer ${
                 selectedColor === col.name
                   ? 'border-neutral-900 ring-2 ring-[#f6b800] scale-110 shadow-sm'
                   : 'border-neutral-300 hover:border-neutral-600'
@@ -168,7 +168,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
               style={{ backgroundColor: col.hex }}
             >
               {selectedColor === col.name && (
-                <Check className={`w-4 h-4 ${col.hex === '#e7e5e4' ? 'text-black' : 'text-white'}`} />
+                <Check className={`w-3.5 h-3.5 ${col.hex === '#e7e5e4' ? 'text-black' : 'text-white'}`} />
               )}
             </button>
           ))}
@@ -176,33 +176,33 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
       </div>
 
       {/* 3. SIZE SELECTOR WITH LIVE STOCK METER */}
-      <div className="py-4 border-b border-neutral-200">
-        <div className="flex items-center justify-between mb-2.5">
+      <div className="pb-3 border-b border-neutral-200">
+        <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-mono font-bold uppercase text-neutral-600">
-            Select Size: <strong className="text-neutral-950 font-sans">{selectedSize}</strong>
+            Size: <strong className="text-neutral-950 font-sans">{selectedSize}</strong>
           </span>
           <button
             onClick={() => setShowSizeModal(true)}
-            className="text-xs font-mono font-bold text-[#e84125] hover:underline flex items-center gap-1 cursor-pointer"
+            className="text-[11px] font-mono font-bold text-[#e84125] hover:underline flex items-center gap-1 cursor-pointer"
           >
-            <HelpCircle className="w-3.5 h-3.5" />
+            <HelpCircle className="w-3 h-3" />
             Size Guide
           </button>
         </div>
 
-        <div className="grid grid-cols-5 gap-2">
+        <div className="grid grid-cols-5 gap-1.5">
           {sizeOptions.map((opt) => (
             <button
               key={opt.size}
               onClick={() => onSelectSize(opt.size)}
-              className={`py-2.5 rounded-xl border font-mono text-xs font-black transition-all flex flex-col items-center justify-center cursor-pointer ${
+              className={`py-2 rounded-xl border font-mono text-xs font-black transition-all flex flex-col items-center justify-center cursor-pointer ${
                 selectedSize === opt.size
-                  ? 'border-neutral-950 bg-neutral-950 text-white shadow-md'
+                  ? 'border-neutral-950 bg-neutral-950 text-white shadow-sm'
                   : 'border-neutral-200 bg-neutral-50/80 text-neutral-800 hover:border-neutral-400 hover:bg-white'
               }`}
             >
               <span>{opt.size}</span>
-              <span className={`text-[8px] font-normal truncate mt-0.5 ${selectedSize === opt.size ? 'text-amber-300' : 'text-neutral-500'}`}>
+              <span className={`text-[8px] font-normal truncate ${selectedSize === opt.size ? 'text-amber-300' : 'text-neutral-500'}`}>
                 {opt.stock}
               </span>
             </button>
@@ -210,16 +210,16 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
         </div>
 
         {/* Fit Confidence Badge */}
-        <div className="mt-2.5 flex items-center gap-1.5 text-[11px] text-neutral-600 font-mono">
-          <Sparkles className="w-3.5 h-3.5 text-[#f6b800]" />
+        <div className="mt-2 flex items-center gap-1.5 text-[10px] text-neutral-600 font-mono">
+          <Sparkles className="w-3 h-3 text-[#f6b800]" />
           <span>Fit: <strong>89% say fits true to size</strong> (Boxy drop cut)</span>
         </div>
       </div>
 
       {/* 4. PINCODE DELIVERY ESTIMATOR */}
-      <div className="py-4 border-b border-neutral-200">
-        <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-neutral-900 mb-2">
-          <MapPin className="w-4 h-4 text-[#e84125]" />
+      <div className="pb-3 border-b border-neutral-200">
+        <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-neutral-900 mb-1.5">
+          <MapPin className="w-3.5 h-3.5 text-[#e84125]" />
           <span>DELIVER TO:</span>
         </div>
 
@@ -229,57 +229,51 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
             maxLength={6}
             value={pincode}
             onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-            placeholder="Enter 6-digit Pincode"
-            className="flex-1 px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs font-bold focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900"
+            placeholder="6-digit Pincode"
+            className="flex-1 px-3 py-1.5 rounded-xl border border-neutral-300 font-mono text-xs font-bold focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900"
           />
           <button
             type="submit"
             disabled={isCheckingPin}
-            className="px-4 py-2 rounded-xl bg-neutral-900 hover:bg-black text-white text-xs font-mono font-bold uppercase transition-colors cursor-pointer"
+            className="px-3.5 py-1.5 rounded-xl bg-neutral-900 hover:bg-black text-white text-xs font-mono font-bold uppercase transition-colors cursor-pointer"
           >
             {isCheckingPin ? '...' : 'Check'}
           </button>
         </form>
 
         {pincodeValidated && (
-          <div className="mt-3 space-y-1.5 p-3 rounded-xl bg-neutral-50 border border-neutral-200">
-            <div className="flex items-start gap-2 text-xs">
-              <Truck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+          <div className="mt-2 p-2 rounded-xl bg-neutral-50 border border-neutral-200 text-xs">
+            <div className="flex items-start gap-1.5">
+              <Truck className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold text-neutral-900">
-                  FREE Express Delivery <strong className="text-emerald-700">Tomorrow by 2 PM</strong>
-                </span>
-                <span className="text-[11px] text-neutral-500 block font-mono">
-                  Order within <strong>03 hrs 24 mins</strong>
+                <span className="font-bold text-neutral-900 text-[11px]">
+                  FREE Express: <strong className="text-emerald-700">Tomorrow by 2 PM</strong>
                 </span>
               </div>
-            </div>
-            <div className="text-[10px] font-mono text-neutral-500 pl-6">
-              Delivering to Mumbai 400001 • Cash On Delivery Available
             </div>
           </div>
         )}
       </div>
 
       {/* 5. STOCK URGENCY & QUANTITY SELECTOR */}
-      <div className="py-4 border-b border-neutral-200 flex items-center justify-between">
+      <div className="pb-3 border-b border-neutral-200 flex items-center justify-between">
         <div>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-            <span className="text-xs font-mono font-black text-red-600 uppercase">
+            <span className="text-[11px] font-mono font-black text-red-600 uppercase">
               ONLY 3 LEFT IN STOCK
             </span>
           </div>
-          <span className="text-[10px] text-neutral-500 font-mono">High demand • 18 people viewing</span>
+          <span className="text-[10px] text-neutral-500 font-mono">18 people viewing</span>
         </div>
 
         {/* Quantity dropdown */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           <span className="text-xs font-mono text-neutral-600 font-bold">Qty:</span>
           <select
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
-            className="px-2.5 py-1.5 rounded-lg border border-neutral-300 font-mono text-xs font-black bg-white focus:border-neutral-900"
+            className="px-2 py-1 rounded-lg border border-neutral-300 font-mono text-xs font-black bg-white focus:border-neutral-900 cursor-pointer"
           >
             {[1, 2, 3, 4, 5].map((q) => (
               <option key={q} value={q}>
@@ -291,24 +285,24 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
       </div>
 
       {/* 6. GIFT WRAP CHECKBOX */}
-      <div className="py-3 border-b border-neutral-200">
-        <label className="flex items-center gap-2 cursor-pointer select-none text-xs text-neutral-700 font-medium">
+      <div className="pb-2 border-b border-neutral-200">
+        <label className="flex items-center gap-2 cursor-pointer select-none text-[11px] text-neutral-700 font-medium">
           <input
             type="checkbox"
             checked={isGiftWrap}
             onChange={(e) => setIsGiftWrap(e.target.checked)}
-            className="w-3.5 h-3.5 rounded text-[#e84125]"
+            className="w-3.5 h-3.5 rounded text-[#e84125] cursor-pointer"
           />
           <Gift className="w-3.5 h-3.5 text-neutral-500" />
-          <span>Add Luxury Streetwear Gift Packaging (+₹49)</span>
+          <span>Add Luxury Streetwear Gift Box (+₹49)</span>
         </label>
       </div>
 
       {/* 7. ACTION BUTTONS (ADD TO CART & BUY NOW) */}
-      <div className="pt-5 space-y-3">
+      <div className="space-y-2 pt-1">
         <button
           onClick={handleAddToCart}
-          className="w-full py-4 rounded-2xl bg-[#f6b800] hover:bg-[#ffc21a] text-black font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-500/20 transition-all active:scale-[0.98] border border-black/10"
+          className="w-full py-3 rounded-2xl bg-[#f6b800] hover:bg-[#ffc21a] text-black font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-amber-500/20 transition-all active:scale-[0.98] border border-black/10 cursor-pointer"
         >
           {addedToCart ? (
             <>
@@ -325,7 +319,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
 
         <button
           onClick={handleAddToCart}
-          className="w-full py-4 rounded-2xl bg-[#e84125] hover:bg-[#d0351b] text-white font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-red-500/20 transition-all active:scale-[0.98] border border-black/10"
+          className="w-full py-3 rounded-2xl bg-[#e84125] hover:bg-[#d0351b] text-white font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-red-500/20 transition-all active:scale-[0.98] border border-black/10 cursor-pointer"
         >
           <Zap className="w-4 h-4 fill-current" />
           <span>BUY NOW (1-CLICK CHECKOUT)</span>
@@ -335,10 +329,10 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
         <div className="flex items-center justify-between pt-1">
           <button
             onClick={() => setIsWishlisted(!isWishlisted)}
-            className="flex items-center gap-1.5 text-xs font-mono font-bold text-neutral-600 hover:text-red-500 transition-colors"
+            className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-neutral-600 hover:text-red-500 transition-colors cursor-pointer"
           >
-            <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
-            <span>{isWishlisted ? 'Saved to Wishlist' : 'Add to Wishlist'}</span>
+            <Heart className={`w-3.5 h-3.5 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
+            <span>{isWishlisted ? 'Saved' : 'Add to Wishlist'}</span>
           </button>
 
           <button
@@ -347,7 +341,7 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
                 navigator.share({ title: productName, url: window.location.href });
               }
             }}
-            className="flex items-center gap-1.5 text-xs font-mono font-bold text-neutral-600 hover:text-black transition-colors"
+            className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-neutral-600 hover:text-black transition-colors cursor-pointer"
           >
             <Share2 className="w-3.5 h-3.5" />
             <span>Share</span>
@@ -356,29 +350,29 @@ export const ProductBuyBox: React.FC<ProductBuyBoxProps> = ({
       </div>
 
       {/* 8. TRUST GUARANTEES & SELLER INFO */}
-      <div className="mt-6 pt-5 border-t border-neutral-200 grid grid-cols-2 gap-3 text-[11px] text-neutral-600 font-mono">
-        <div className="flex items-center gap-2">
-          <RotateCcw className="w-4 h-4 text-neutral-800 shrink-0" />
-          <span>7-Day Free Returns &amp; Exchange</span>
+      <div className="pt-2 border-t border-neutral-200 grid grid-cols-2 gap-2 text-[10px] text-neutral-600 font-mono">
+        <div className="flex items-center gap-1.5">
+          <RotateCcw className="w-3.5 h-3.5 text-neutral-800 shrink-0" />
+          <span>7-Day Return</span>
         </div>
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-green-600 shrink-0" />
-          <span>100% Cotton Authenticity</span>
+        <div className="flex items-center gap-1.5">
+          <ShieldCheck className="w-3.5 h-3.5 text-green-600 shrink-0" />
+          <span>100% Cotton</span>
         </div>
-        <div className="flex items-center gap-2">
-          <Lock className="w-4 h-4 text-neutral-800 shrink-0" />
-          <span>Secure Encrypted Payment</span>
+        <div className="flex items-center gap-1.5">
+          <Lock className="w-3.5 h-3.5 text-neutral-800 shrink-0" />
+          <span>Secure Checkout</span>
         </div>
-        <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-[#f6b800] shrink-0" />
-          <span>NWear Prime Assured</span>
+        <div className="flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-[#f6b800] shrink-0" />
+          <span>Prime Assured</span>
         </div>
       </div>
 
       {/* Seller Credentials */}
-      <div className="mt-4 pt-3 border-t border-neutral-100 text-[10px] font-mono text-neutral-500 flex items-center justify-between">
-        <span>Ships from: <strong>NWear Fulfillment Center</strong></span>
-        <span>Sold by: <strong>NWear Studio Official</strong></span>
+      <div className="pt-2 border-t border-neutral-100 text-[9px] font-mono text-neutral-400 flex items-center justify-between">
+        <span>Ships from: <strong className="text-neutral-600">NWear Logistics</strong></span>
+        <span>Sold by: <strong className="text-neutral-600">NWear Studio Official</strong></span>
       </div>
 
       {/* SIZE CHART MODAL POPUP */}

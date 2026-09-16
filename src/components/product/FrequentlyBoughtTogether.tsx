@@ -78,6 +78,22 @@ export const FrequentlyBoughtTogether: React.FC<FrequentlyBoughtTogetherProps> =
     },
   ]);
 
+  React.useEffect(() => {
+    setItems((prev) =>
+      prev.map((it) =>
+        it.id === 'item-main'
+          ? {
+              ...it,
+              name: currentProduct.name,
+              image: currentProduct.image,
+              price: currentProduct.price,
+              originalPrice: currentProduct.originalPrice,
+            }
+          : it
+      )
+    );
+  }, [currentProduct.name, currentProduct.image, currentProduct.price, currentProduct.originalPrice]);
+
   const [addedBundle, setAddedBundle] = useState<boolean>(false);
 
   const toggleItem = (id: string) => {
