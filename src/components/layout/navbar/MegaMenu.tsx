@@ -176,7 +176,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ activeKey, onClose }) => {
       onMouseLeave={onClose}
       className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl border-b border-neutral-200/90 shadow-2xl py-8 px-6 transition-all duration-300 animate-in fade-in slide-in-from-top-2 z-50"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-start">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 grid grid-cols-12 gap-8 items-start">
         {/* Navigation Columns (8 cols) */}
         <div className="col-span-7 lg:col-span-8 grid grid-cols-2 gap-8 pr-6 border-r border-neutral-200/80">
           {data.columns.map((col, idx) => (

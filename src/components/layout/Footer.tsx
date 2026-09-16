@@ -114,7 +114,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* 2. QUALITY GUARANTEE BADGES GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 pt-10 pb-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           
           <div className="p-4 rounded-xl border-2 border-black bg-neutral-50 hover:bg-amber-50/60 transition-colors shadow-xs group">
@@ -185,7 +185,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* 3. MAIN EDITORIAL CONTENT GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
           {/* Left Column: The Secret Vault (VIP Drop Club) & Live Order Tracking (5 cols) */}

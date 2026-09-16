@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
         className="sticky top-0 z-40 w-full border-b border-black/[0.07] bg-white/85 backdrop-blur-xl transition-all duration-300"
         onMouseLeave={() => setActiveMegaMenu(null)}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
+        <div className="w-full flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8 xl:px-12">
           
           {/* Left: Mobile Trigger & Brand Logo & Navigation */}
           <div className="flex items-center gap-4 lg:gap-8">
