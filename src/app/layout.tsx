@@ -16,8 +16,8 @@ const deacon = local({
 });
 
 export const metadata: Metadata = {
-  title: 'Nowear',
-  description: 'wear for everywhere',
+  title: 'NWear - Wear For Everywhere',
+  description: 'NWear - Modern Streetwear, Heavyweight Knits & Minimal Essentials',
 };
 
 export default function RootLayout({

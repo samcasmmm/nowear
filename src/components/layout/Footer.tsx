@@ -46,7 +46,7 @@ const clientConcierge = [
 ];
 
 const studioLinks = [
-  { label: 'The NOWEAR Manifesto', href: '/about' },
+  { label: 'The NWEAR Manifesto', href: '/about' },
   { label: 'Sustainable Sourcing & Mills', href: '/about' },
   { label: 'Creator Squad & Affiliates', href: '/creators' },
   { label: 'Flagship Stores & Pop-ups', href: '/stores' },
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
   };
 
   const copyVoucher = () => {
-    navigator.clipboard.writeText('NOWEAR-VAULT500');
+    navigator.clipboard.writeText('NWEAR-VAULT500');
     setCouponCopied(true);
     setTimeout(() => setCouponCopied(false), 2500);
   };
@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
       <div className="w-full bg-[#f6b800] border-b-2 border-black py-3 overflow-hidden select-none">
         <Marquee speed={65} autoFill className="overflow-hidden">
           <span className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-black mx-6 font-mono flex items-center gap-4">
-            <span>NOWEAR STUDIO</span>
+            <span>NWEAR STUDIO</span>
             <span className="w-2.5 h-2.5 bg-black inline-block rotate-45" />
             <span>2.000.000+ HUMANS STYLED</span>
             <span className="w-2.5 h-2.5 bg-black inline-block rotate-45" />
@@ -216,7 +216,7 @@ export const Footer: React.FC = () => {
                   <div className="flex items-center justify-between p-3 bg-white border border-emerald-300 rounded-lg">
                     <div>
                       <span className="text-[10px] font-mono text-neutral-500 block uppercase">YOUR ₹500 VOUCHER:</span>
-                      <span className="font-mono font-black text-sm tracking-wider text-black">NOWEAR-VAULT500</span>
+                      <span className="font-mono font-black text-sm tracking-wider text-black">NWEAR-VAULT500</span>
                     </div>
                     <button
                       onClick={copyVoucher}
@@ -496,7 +496,7 @@ export const Footer: React.FC = () => {
         {/* 5. BESPOKE MASSIVE GRAPHIC TYPOGRAPHY */}
         <div className="mt-10 mb-2 select-none pointer-events-none w-full overflow-hidden border-t-2 border-black pt-4">
           <div className="flex items-baseline justify-between font-black tracking-tighter uppercase leading-none text-[15vw] sm:text-[14vw] md:text-[13vw] whitespace-nowrap">
-            <span className="text-[#e84125]">NOWEAR.</span>
+            <span className="text-[#e84125]">NWEAR.</span>
             <span className="text-black">STUDIO</span>
           </div>
         </div>
@@ -509,7 +509,7 @@ export const Footer: React.FC = () => {
             <p>
               © 2018-{new Date().getFullYear()}{' '}
               <Link href="/" className="underline hover:text-[#e84125] transition-colors">
-                NOWEAR STUDIO INC.
+                NWEAR STUDIO INC.
               </Link>{' '}
               ALL RIGHTS RESERVED.
             </p>

@@ -92,6 +92,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
     if (!promoCode.trim()) return;
     if (
       promoCode.toUpperCase() === 'FIRST500' ||
+      promoCode.toUpperCase() === 'NWEAR500' ||
       promoCode.toUpperCase() === 'NOWEAR500'
     ) {
       setDiscountApplied(true);

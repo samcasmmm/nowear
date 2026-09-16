@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
       <div className="relative flex items-center">
         <Image
           src="/images/logo_dark.png"
-          alt="NoWear Logo"
+          alt="NWear Logo"
           width={120}
           height={34}
           className="cursor-pointer object-contain group-hover:opacity-80 transition-opacity"

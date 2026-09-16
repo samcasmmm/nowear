@@ -59,12 +59,12 @@ const BrandStory: React.FC = () => {
             </h2>
             
             <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal mb-8 max-w-2xl">
-              NoWear is all about modern clothes for modern humans. We aim to merge
+              NWear is all about modern clothes for modern humans. We aim to merge
               high-fashion aesthetics with effortless ease and comfort into every
               piece. From our custom-crafted fabrics to our curated seasonal drops,
               you get the absolute pinnacle in style without sacrificing feel.
               Wear less noise, live more story. You&apos;ll never go back once you
-              experience NoWear.
+              experience NWear.
             </p>
 
             {/* Feature Badges List */}
@@ -96,7 +96,7 @@ const BrandStory: React.FC = () => {
             <div className="relative aspect-4/5 w-full rounded-3xl overflow-hidden shadow-xl border border-neutral-200/90 bg-neutral-100">
               <Image
                 src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=1000&q=80"
-                alt="NoWear Lifestyle & Couple Outfits"
+                alt="NWear Lifestyle & Couple Outfits"
                 fill
                 sizes="(max-width: 1024px) 100vw, 500px"
                 className="object-cover object-top"
