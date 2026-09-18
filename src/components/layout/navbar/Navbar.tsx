@@ -119,12 +119,13 @@ export const Navbar: React.FC = () => {
             </button>
 
             {/* VIP Profile Avatar */}
-            <button
+            <Link
+              href="/profile"
               aria-label="Customer account"
               className="hidden sm:flex p-2 rounded-full hover:bg-neutral-100 text-neutral-700 hover:text-neutral-950 transition-colors cursor-pointer"
             >
               <User className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -237,11 +238,19 @@ export const Navbar: React.FC = () => {
               </p>
             </div>
 
-            {/* Customer Care Links */}
+            {/* Customer Care & Profile Links */}
             <div className="pt-6 border-t border-neutral-200 grid grid-cols-2 gap-3 text-xs font-bold text-neutral-600">
-              <Link href="/track-order" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 hover:text-black">
+              <Link href="/profile" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 hover:text-black">
+                <User className="w-4 h-4 text-[#f6b800]" />
+                <span>Member Vault</span>
+              </Link>
+              <Link href="/checkout" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 hover:text-black">
+                <ShoppingBag className="w-4 h-4 text-neutral-900" />
+                <span>Fast Checkout</span>
+              </Link>
+              <Link href="/profile" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 hover:text-black">
                 <Truck className="w-4 h-4 text-neutral-400" />
-                <span>Track Order</span>
+                <span>Track Orders</span>
               </Link>
               <Link href="https://wa.me" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 hover:text-black">
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
